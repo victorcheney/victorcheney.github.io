@@ -16,7 +16,7 @@ Hacker主题：[https://github.com/CodeDaraW/Hacker](https://github.com/CodeDara
 ``` bash
 $ hexo new "My New Post"
 ```
-
+<!--more-->
 More info: [Writing](https://hexo.io/docs/writing.html)
 
 ### Run server
