@@ -65,15 +65,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2018/12/28/hello-world/"><span>Hexo相关操作</span></a></h3>
+    <h3 class="article-title"><a href="/2017/10/14/AngularJS验证用户名的自定义指令/"><span>AngularJS验证用户名的自定义指令</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2018/12/28/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-12-28T08:31:14.369Z">
-          2018-12-28
+      <a href="/2017/10/14/AngularJS验证用户名的自定义指令/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-10-14T06:01:04.000Z">
+          2017-10-14
         </time>
       </a>
     </span>
@@ -85,25 +85,11 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>文档：<a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/commands</a></p>
-<p>Hacker主题：<a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="noopener">https://github.com/CodeDaraW/Hacker</a></p>
-<p>多设备方案：<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="noopener">https://www.zhihu.com/question/21193762</a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h3 id="模版（Scaffold）"><a href="#模版（Scaffold）" class="headerlink" title="模版（Scaffold）"></a>模版（Scaffold）</h3><p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：</p>
-<pre><code>$ hexo new photo &quot;My Gallery&quot;
-</code></pre><p>在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 photo.md，并根据其内容建立文章，以下是您可以在模版中使用的变量：</p>
-<pre><code>变量    描述  
-layout  布局  
-title   标题  
-date    文件建立日期  
-</code></pre>
+        <h2 id="Angularjs表单验证中，验证用户名是否唯一"><a href="#Angularjs表单验证中，验证用户名是否唯一" class="headerlink" title="Angularjs表单验证中，验证用户名是否唯一"></a>Angularjs表单验证中，验证用户名是否唯一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;demo.form&apos;)</span><br><span class="line">.directive(&apos;ensureUnique&apos;, [&apos;$http&apos;, ($http) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    require: &apos;ngModel&apos;,</span><br><span class="line">    link: (scope, ele, attrs, c) =&gt; &#123;</span><br><span class="line">      scope.$watch(attrs.ngModel, () =&gt; &#123;</span><br><span class="line">        $https(&#123;</span><br><span class="line">          method: &apos;POST&apos;,</span><br><span class="line">          url: &apos;/api/check/&apos; + attrs.ensureUnique,</span><br><span class="line">          data: &#123;&apos;field&apos;: attrs.ensureUnique&#125;</span><br><span class="line">        &#125;).success((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, data.isUnique)</span><br><span class="line">        &#125;).error((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, false);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>第三方插件<br>bindonece 单项绑定<br>html2js 将html打包成js文件</p>
+<p>扩展第三方组件：<br>$provide.decorator</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">app.config(function($provide) &#123;</span><br><span class="line">    $provide.decorator(&apos;fooDirectve&apos;, function($delegate) &#123;</span><br><span class="line">        var directive = $delegate[0];</span><br><span class="line"></span><br><span class="line">        directive.scope.fn = &apos;&amp;&apos;;</span><br><span class="line">        var link = directive.link;</span><br><span class="line"></span><br><span class="line">        directive.compile = function() &#123;</span><br><span class="line">            return funtion(scope, element, attrs) &#123;</span><br><span class="line">                link.apply(this, arguments);</span><br><span class="line">                element.bind(&apos;click&apos;, function() &#123;</span><br><span class="line">                    scope.$apply(funtion() &#123;</span><br><span class="line">                        scope.fn();</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return $delegate;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -119,7 +105,119 @@ date    文件建立日期
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/hexo/">hexo</a>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/01/06/angularjs表单验证/"><span>angularjs表单验证</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/01/06/angularjs表单验证/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-01-06T04:44:48.000Z">
+          2017-01-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="转-常用的表单验证指令"><a href="#转-常用的表单验证指令" class="headerlink" title="[转]常用的表单验证指令"></a>[转]常用的表单验证指令</h2><p>1.必填项验证</p>
+<p>某个表单输入是否已填写，只要在输入字段元素上添加HTML5标记required即可：</p>
+<pre><code>&lt;input type=&quot;text&quot; required /&gt;
+</code></pre><p>2.最小长度</p>
+<p>验证表单输入的文本长度是否大于某个最小值，在输入字段上使用指令ng-minleng= “{number}”：</p>
+<pre><code>&lt;input type=&quot;text&quot; ng-minlength=&quot;5&quot; /&gt; 
+</code></pre><p>…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/01/06/AngularJS-用-Interceptors-来统一处理-HTTP-请求和响应/"><span>AngularJS 用 Interceptors 来统一处理 HTTP 请求和响应</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/01/06/AngularJS-用-Interceptors-来统一处理-HTTP-请求和响应/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-01-06T04:29:27.000Z">
+          2017-01-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><p>Interceptors 有两个处理时机，分别是：</p>
+<p>其它程序代码执行 HTTP 请求之后，在实际从浏览器发出请求之前，即处理请求<br>得到请求的响应之后，在交给其它程序代码处理之前，即处理请求的响应<br>所以，不难理解它可以用于如下几个方面：</p>
+<p>全局处理错误<br>统一进行身份验证一类的处理<br>对所有发出去的请求进行预处理<br>对所有收到的响应进行预处理<br>做一些增强用户体验的操作，例如显示一个进度条…</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
     </span>
     
 
@@ -160,146 +258,9 @@ date    文件建立日期
 <p>###Navigator 对象集合###</p>
 <blockquote>
 <p>集合：plugins[]</p>
-<p>描述：返回对文档中所有嵌入式对象的引用。<br>该集合是一个 Plugin 对象的数组，其中的元素代表浏览器已经安装的插件。Plug-in 对象提供的是有关插件的信息，其中包括它所支持的 MIME 类型的列表。<br>虽然 plugins[] 数组是由 IE 4 定义的，但是在 IE 4 中它却总是空的，因为 IE 4 不支持插件和 Plugin 对象。</p>
-</blockquote>
-<p>###Navigator 对象属性###</p>
-<blockquote>
-<p>appCodeName     ——————返回浏览器的代码名。</p>
-<p>appMinorVersion—————-    返回浏览器的次级版本。</p>
-<p>appName————————-    返回浏览器的名称。</p>
-</blockquote>
-<blockquote>
-<p>appVersion———————–    返回浏览器的平台和版本信息。</p>
-<p>browserLanguage—————    返回当前浏览器的语言。</p>
-<p>cookieEnabled——————-    返回指明浏览器中是否启用 cookie 的布尔值。</p>
-<p>cpuClass—————————返回浏览器系统的 CPU 等级。</p>
-<p>onLine——————————返回指明系统是否处于脱机模式的布尔值。</p>
-<p>platform—————————–返回运行浏览器的操作系统平台。</p>
-<p>systemLanguage—————–返回 OS 使用的默认语言。</p>
-<p>userAgent————————–返回由客户机发送服务器的 user-agent 头部的值。</p>
-<p>userLanguage———————返回 OS 的自然语言设置。</p>
-</blockquote>
-<p>###Navigator 对象方法###</p>
-<blockquote>
-<p>javaEnabled()———————-规定浏览器是否启用 Java。</p>
-</blockquote>
-<p>taintEnabled()———————-规定浏览器是否启用数据污点 (data tainting)。</p>
-<hr>
-<p>在新的API标准中，可以通过navigator.geolocation来获取设备的当前位置，返回一个位置对象，用户可以从这个对象中得到一些经纬度的相关信息。</p>
-<p>navigator.geolocation的三个方法：</p>
-<blockquote>
-<ol>
-<li>getCurrentPosition()</li>
-<li>watchPosition()</li>
-<li>clearWatch()</li>
-</ol>
-</blockquote>
-<p><strong><em>getCurrentPosition()</em></strong></p>
-<p>使用方法：navigator.geolocation.getCurrentPosition(successCallback, [errorCallback] , [positionOptions]);</p>
-<p>A) successCallback 获取定位成功时执行的回调函数 eg: function(position){alert(“纬度：”+position.coords.latitude+”；经度：”+position.coords.longitude)};</p>
-<p>successCallback返回一个地理数据对象position作为参数，该对象有属性timestamp和coords。timestamp表示该地理数据创建时间（时间戳）；coords包括另外七个属性：</p>
-<blockquote>
-<ol>
-<li>coords.latitude：估计纬度</li>
-<li>coords.longitude：估计经度</li>
-<li>coords.altitude：估计高度</li>
-<li>coords.accuracy：所提供的以米为单位的经度和纬度估计的精确度</li>
-<li>coords.altitudeAccuracy：所提供的以米为单位的高度估计的精确度</li>
-<li>coords.heading： 宿主设备当前移动的角度方向，相对于正北方向顺时针计算</li>
-<li>coords.speed：以米每秒为单位的设备的当前对地速度</li>
-</ol>
-</blockquote>
-<p>PS：firefox下还有address属性，可以获取详细地址，不过我得到的地址是错误的，使用方法：position.address.city，具体如下：</p>
-<pre><code>QueryInterface：function QueryInterface() { [native code] }
-streetNumber：200号
-street：人民大道
-premises：null
-city：上海市
-county：null
-region：上海市
-country：中国
-countryCode：CN
-postalCode：null
-getInterfaces：function getInterfaces() { [native code] }
-getHelperForLanguage：function getHelperForLanguage() { [native code] }
-contractID：null
-classDescription：null
-classID：null
-implementationLanguage：2
-flags：8
-SINGLETON：1
-THREADSAFE：2
-MAIN_THREAD_ONLY：4
-DOM_OBJECT：8
-PLUGIN_OBJECT：16
-CONTENT_NODE：64
-RESERVED：2147483648
-</code></pre><p>address属性</p>
-<p>B) errorCallback 定位失败时执行的回调函数 eg: function(error){alert(error.message);}</p>
-<p>errorCallback返回一个错误数据对象error作为参数，该对象有属性：</p>
-<p>　　1.code :表示失败原因，返回1 or 2 or 3 ，具体为</p>
-<p>　　　　PERMISSION_DENIED (数值为1) 表示没有权限使用地理定位API</p>
-<p>　　　　POSITION_UNAVAILABLE (数值为2) 表示无法确定设备的位置，例如一个或多个的用于定位采集程序报告了一个内部错误导致了全部过程的失败</p>
-<p>　　　　TIMEOUT (数值为3) 表示超时</p>
-<p>　　　　详情查看 <a href="http://dev.w3.org/geo/api/spec-source.html#permission_denied_error" target="_blank" rel="noopener">http://dev.w3.org/geo/api/spec-source.html#permission_denied_error</a></p>
-<p>　　2.message :错误提示内容 </p>
-<p>C) positionOptions 用来设置positionOptions来更精细的执行定位，positionOptions拥有三个属性{enableHighAccuracy:boolean , timeout:long , maximumAge:long}。</p>
-<blockquote>
-<p>enableHighAccuracy 【true or false(默认)】是否返回更详细更准确的结构，默认为false不启用，选择true则启用，但是会导致较长的响应时间及增加功耗，这种情况更多的用在移动设备上。</p>
-</blockquote>
-<blockquote>
-<p>timeout 设备位置获取操作的超时时间设定（不包括获取用户权限时间），单位为毫秒，如果在设定的timeout时间内未能获取位置定位，则会执行errorCallback()返回code（3）。如果未设定timeout，那么timeout默认为无穷大，如果timeout为负数，则默认timeout为0。</p>
-</blockquote>
-<blockquote>
-<p>maximumAge 设定位置缓存时间，以毫秒为单位，如果不设置该值，该值默认为0，如果设定负数，则默认为0。该值为0时，位置定位时会重新获取一个新的位置对象；该值大于0时，即从上一次获取位置时开始，缓存位置对象，如果再次获取位置时间不超过maximumAge，则返回缓存中的位置，如果超出maximumAge，则重新获取一个新的位置。</p>
-</blockquote>
-<p><strong><em>watchPosition()</em></strong></p>
-<p>功能getCurrentPosition()相似，watchPosition()是定期轮询设备的位置，同样拥有3个参数，与getCurrentPosition()相同。</p>
-<blockquote>
-<p>使用方法：navigator.geolocation.watchPosition(successCallback, [errorCallback] , [positionOptions]);</p>
-</blockquote>
-<blockquote>
-<p>执行步骤：</p>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>1.首先初始化positionOptions内的属性（详细同上）。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>2.判断是否有缓存位置对象，该对象年龄是否可用、是否超出maximumAge ，如果可用且未超出，返回缓存位置，否则重新确定设备位置。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>3.位置定位操作：</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>i.建立一个计时器，进行位置获取操作，如果在timeout之前完成，执行下一步；如果未在timeout之前完成，则执行errorCallback()，code为3，跳出步骤做等待重新激活。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>ii.如果在timeout之前获得位置成功，则执行successCallback()，然后重置计时器（从获取位置成功时刻重新算起），继续挂起获取新位置。当有与之前位置有明显不同位置出现时，再次执行successCallback()，并重复操作，该循环直到timeout超时或者获取操作中遇到POSITION_UNAVAILABLE错误执行errorCallback()为止，亦或者执行clearWatch()操作。</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p><strong><em>clearWatch()</em></strong></p>
-<blockquote>
-<p>配合watchPosition()使用，用于停止watchPosition()轮询。</p>
-</blockquote>
-<blockquote>
-<p>watchPosition()需要定义一个watchID，var watchID = watchPosition(…)，通过clearWatch(watchID)来停止watchPosition()，使用方法类似setInterval。</p>
-</blockquote>
-
+<p>描述：返回对文档中所有嵌入式对象的引用。<br>该集合是一个 Plugin 对象的数组，其中的元素代表浏览器已经安装的插件。Plug-in 对象提供的是有关插件的信息，其中包括它所支持的 MIME 类型的列表。<br>虽然 plugins[] 数组是由 IE 4 定义的，但是在 IE 4 中它却总是空的，因为 IE 4 不支持插件和 Plugin 对象。<br>
       
-    </div>
+    </p></blockquote></div>
 
   </div>
 
@@ -325,6 +286,326 @@ RESERVED：2147483648
 
 
 
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/10/20/AngularJS源码之ng-style/"><span>AngularJS源码之ng-style</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/20/AngularJS源码之ng-style/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-20T03:58:42.000Z">
+          2016-10-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>ng-style源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) &#123;</span><br><span class="line">  if (oldStyles &amp;&amp; (newStyles !== oldStyles)) &#123;</span><br><span class="line">    forEach(oldStyles, function(val, style) &#123;</span><br><span class="line">      element.css(style, &apos;&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  if (newStyles)</span><br><span class="line">    element.css(newStyles);</span><br><span class="line">&#125;, true);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/08/06/angularjs中ng-model的坑/"><span>angularjs中ng-model的坑</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/06/angularjs中ng-model的坑/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-06T05:33:31.000Z">
+          2016-08-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>[转]<br>angular中指令被用的最多的除了ng-repeat之外就非他莫属了吧，由于各种业务的需求，我们经常需要去写一些继承ngModel的指令，来满足各种奇葩需求，最多的莫过于表单的验证啦，另外你在封装一些jquery插件的时候，也是需要继承ngModel的，最典型的莫过于 datepicker、fileUpload等等。…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/07/16/AngularJS指令进阶–ngModelController详解/"><span>AngularJS指令进阶–ngModelController详解</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/16/AngularJS指令进阶–ngModelController详解/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-16T10:15:11.000Z">
+          2016-07-16
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>在自定义Angular指令时，其中有一个叫做require的字段，这个字段的作用是用于指令之间的相互交流。举个简单的例子，假如我们现在需要编写两个指令，在linking函数中有很多重合的方法，为了避免重复自己（著名的DRY原则），我们可以将这个重复的方法写在第三个指令的controller中，然后在另外两个需要的指令中require这个拥有controller字段的指令，最后通过linking函数的第四个参数就可以引用这些重合的方法。代码的结构大致如下：<br>…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/07/15/AngularJS执行流程详解/"><span>AngularJS执行流程详解</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/15/AngularJS执行流程详解/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-15T13:26:44.000Z">
+          2016-07-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="一、启动阶段"><a href="#一、启动阶段" class="headerlink" title="一、启动阶段"></a>一、启动阶段</h2><p>大家应该都知道，当浏览器加载一个HTML页面时，它会将HMTL页面先解析成DOM树，然后逐个加载DOM树中的每一个元素节点。我们可以把AngularJS当做一个类似jQuery的js库，我们通过<code>&lt;script&gt;</code>标签引入到HTML中，那么此时Angular就做为一个普通的DOM节点等待浏览器解析，当浏览器解析到这个节点时，发现它是一个js文件，那么浏览器会停止解析剩余的DOM节点，开始执行这个js（即angular.js），同时Angular会设置一个事件监听器来监听浏览器的DOMContentLoaded事件。当Angular监听到这个事件时，就会启动Angular应用。…</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/07/12/angularjs问题总结/"><span>angularjs问题总结</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/07/12/angularjs问题总结/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-07-12T12:49:28.000Z">
+          2016-07-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="1-动态添加html代码-中的ng指令问题"><a href="#1-动态添加html代码-中的ng指令问题" class="headerlink" title="1.动态添加html代码 中的ng指令问题"></a>1.动态添加html代码 中的ng指令问题</h2><p>调用$compile重新编译这部分代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">app.directive(&quot;showtip&quot;,[&apos;$compile&apos;,function($compile)&#123;</span><br><span class="line">  return &#123;</span><br><span class="line">      restrict : &quot;A&quot;,</span><br><span class="line">      scope: false,</span><br><span class="line">      replace: true,</span><br><span class="line">      link : function(scope,element,attrs)&#123;</span><br><span class="line">          // element.on(&quot;click&quot;,function ($event) &#123;</span><br><span class="line">          //     scope.showTip = true;</span><br><span class="line">          //     $event.stopPropagation();</span><br><span class="line">          // &#125;);</span><br><span class="line">          setInterval(function()&#123;</span><br><span class="line">              scope.$apply();</span><br><span class="line">          &#125;, 0);</span><br><span class="line">          var el=$compile(element.contents())(scope);</span><br><span class="line">          // elem.contents().remove();</span><br><span class="line">          element.append(el);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/01/06/hello-world/"><span>Hexo相关操作</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/01/06/hello-world/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-01-06T04:44:48.000Z">
+          2016-01-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>文档：<a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/commands</a></p>
+<p>Hacker主题：<a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="noopener">https://github.com/CodeDaraW/Hacker</a></p>
+<p>多设备方案：<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="noopener">https://www.zhihu.com/question/21193762</a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/hexo/">hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
 
 <nav class="pagination">
   
@@ -338,7 +619,7 @@ RESERVED：2147483648
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     <br>
     
-    &copy; 2018 victor cheney
+    &copy; 2019 victor cheney
     
   </p>
 </footer>

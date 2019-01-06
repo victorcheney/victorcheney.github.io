@@ -3,21 +3,27 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>关于 | VICTORCHENEY | INNERPEACE</title>
+  <title>AngularJS源码之ng-style | VICTORCHENEY | INNERPEACE</title>
 
   
   <meta name="author" content="victor cheney">
   
 
   
+  <meta name="description" content="ng-style源码
+123456789scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) &amp;#123;  if (oldStyles &amp;amp;&amp;amp; (newStyles !== oldSt">
+  
 
+  
+  
+  <meta name="keywords" content="angularjs">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <meta property="og:title" content="关于">
+  <meta property="og:title" content="AngularJS源码之ng-style">
 
   <meta property="og:site_name" content="VICTORCHENEY">
 
@@ -64,15 +70,15 @@
 
   
     
-    <h3 class="article-title"><span>关于</span></h3>
+    <h3 class="article-title"><span>AngularJS源码之ng-style</span></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/about/index.html" rel="bookmark">
-        <time class="entry-date published" datetime="2018-12-28T08:52:43.000Z">
-          2018-12-28
+      <a href="/2016/10/20/AngularJS源码之ng-style/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-20T03:58:42.000Z">
+          2016-10-20
         </time>
       </a>
     </span>
@@ -84,7 +90,9 @@
   <div class="article-content">
     <div class="entry">
       
-        
+        <p>ng-style源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) &#123;</span><br><span class="line">  if (oldStyles &amp;&amp; (newStyles !== oldStyles)) &#123;</span><br><span class="line">    forEach(oldStyles, function(val, style) &#123;</span><br><span class="line">      element.css(style, &apos;&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  if (newStyles)</span><br><span class="line">    element.css(newStyles);</span><br><span class="line">&#125;, true);</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -95,6 +103,13 @@
 
     
 
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
     
 
     </div>

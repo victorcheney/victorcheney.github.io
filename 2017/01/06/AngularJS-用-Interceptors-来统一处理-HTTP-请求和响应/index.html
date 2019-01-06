@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>AngularJS 用 Interceptors 来统一处理 HTTP 请求和响应 | VICTORCHENEY | INNERPEACE</title>
+
+  
+  <meta name="author" content="victor cheney">
+  
+
+  
+  <meta name="description" content="主要功能Interceptors 有两个处理时机，分别是：
+其它程序代码执行 HTTP 请求之后，在实际从浏览器发出请求之前，即处理请求得到请求的响应之后，在交给其它程序代码处理之前，即处理请求的响应所以，不难理解它可以用于如下几个方面：
+全局处理错误统一进行身份验证一类的处理对所有发出去的请求进行预处理对所有收到的响应进行预处理做一些增强用户体验的操作，例如显示一个进度条…">
+  
+
+  
+  
+  <meta name="keywords" content="angularjs">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="AngularJS 用 Interceptors 来统一处理 HTTP 请求和响应">
+
+  <meta property="og:site_name" content="VICTORCHENEY">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="VICTORCHENEY" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">VICTORCHENEY</a>
+    </h1>
+    <p class="site-description">INNERPEACE</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>AngularJS 用 Interceptors 来统一处理 HTTP 请求和响应</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/01/06/AngularJS-用-Interceptors-来统一处理-HTTP-请求和响应/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-01-06T04:29:27.000Z">
+          2017-01-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><p>Interceptors 有两个处理时机，分别是：</p>
+<p>其它程序代码执行 HTTP 请求之后，在实际从浏览器发出请求之前，即处理请求<br>得到请求的响应之后，在交给其它程序代码处理之前，即处理请求的响应<br>所以，不难理解它可以用于如下几个方面：</p>
+<p>全局处理错误<br>统一进行身份验证一类的处理<br>对所有发出去的请求进行预处理<br>对所有收到的响应进行预处理<br>做一些增强用户体验的操作，例如显示一个进度条…</p>
+<a id="more"></a>
+<h3 id="先来看看最基本的使用："><a href="#先来看看最基本的使用：" class="headerlink" title="先来看看最基本的使用："></a>先来看看最基本的使用：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">var app = angular.module(&apos;app&apos;, []);</span><br><span class="line"></span><br><span class="line">// 定义一个 Service ，稍等将会把它作为 Interceptors 的处理函数</span><br><span class="line">app.factory(&apos;HttpInterceptor&apos;, [&apos;$q&apos;, HttpInterceptor]);</span><br><span class="line"></span><br><span class="line">function HttpInterceptor($q) &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    request: function(config)&#123;</span><br><span class="line">      return config;</span><br><span class="line">    &#125;,</span><br><span class="line">    requestError: function(err)&#123;</span><br><span class="line">      return $q.reject(err);</span><br><span class="line">    &#125;,</span><br><span class="line">    response: function(res)&#123;</span><br><span class="line">      return res;</span><br><span class="line">    &#125;,</span><br><span class="line">    responseError: function(err)&#123;</span><br><span class="line">      if(-1 === err.status) &#123;</span><br><span class="line">        // 远程服务器无响应</span><br><span class="line">      &#125; else if(500 === err.status) &#123;</span><br><span class="line">        // 处理各类自定义错误</span><br><span class="line">      &#125; else if(501 === err.status) &#123;</span><br><span class="line">        // ...</span><br><span class="line">      &#125;</span><br><span class="line">      return $q.reject(err);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 添加对应的 Interceptors</span><br><span class="line">app.config([&apos;$httpProvider&apos;, function($httpProvider)&#123;</span><br><span class="line">  $httpProvider.interceptors.push(HttpInterceptor);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>进一步了解</p>
+<p>实际的 Interceptor 处理函数中， return 了一个包含四个成员的对象，这四个成员都 不是必须 的，可以按实际情况指定一二，分别如下：</p>
+<p><code>request</code> ：接收一个参数，它是 $http 中的标准 config 对象，同时也需要返回一个标准 config ，此时可以添加各类身份验证信息，同时也可在此启动进度条<br><code>requestError</code> ：当有多个 Interceptor 的时候， requestError 会在前一个 Interceptor 抛出错误或者执行 $q.reject() 时执行，接收的参数就对应的错误<br><code>response</code> ：接受一个请求对象参数，可以不处理就直接返回，此时也可以将进度条显示为成功完成，当然，如果后端 API 返回自定义错误时，HTTP 的状态码仍然是 200 得话，便在这里处理自定义错误，也可以对返回数据做一些处理，注意要将进度条置为完成<br><code>responseError</code> ：这个是重头戏，即可以处理标准的 Http 错误，如服务器没有响应时，或者 PHP 之类的 CGI 经常出现的 502 一类，还可以处理 HTTP 状态码不是 200 的各类自定义错误<br>上面四个中，前两个是请求的前置处理，后两个是针对请求的响应的处理。</p>
+<h2 id="Error-injector-cdep-angular-循环依赖解决方案"><a href="#Error-injector-cdep-angular-循环依赖解决方案" class="headerlink" title="Error: [$injector:cdep] angular 循环依赖解决方案"></a>Error: [$injector:cdep] angular 循环依赖解决方案</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">app.factory(&apos;httpInterceptor&apos;, [&apos;$q&apos;, &apos;$injector&apos;, &apos;$state&apos;, ($q, $injector，$state) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">  let httpInterceptor = &#123;</span><br><span class="line">      // 响应</span><br><span class="line">      response: (response) =&gt; &#123;</span><br><span class="line">          // 判断权限</span><br><span class="line">          if (response &amp;&amp; response.data &amp;&amp; response.data._NO_PERMISSION_) &#123;</span><br><span class="line">              $state.go(&apos;app.no_permission&apos;, &#123;</span><br><span class="line">                  message: response.data._ERROR_MESSAGE_ || &apos;没有访问权限&apos;</span><br><span class="line">              &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">          return response;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>直接注入$state会导致循环注入错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: [$injector:cdep] http://errors.angularjs.org/1.3.10/$injector/cdep?p0=$http &lt;- $templateFactory &lt;- $view &lt;- $state &lt;- httpInterceptor &lt;- $http &lt;- $translateStaticFilesLoader</span><br></pre></td></tr></table></figure>
+<p>解决：在response方法中，手动注入$state</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">app.factory(&apos;httpInterceptor&apos;, [&apos;$q&apos;, &apos;$injector&apos;, ($q, $injector) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    let httpInterceptor = &#123;</span><br><span class="line">        // 响应</span><br><span class="line">        response: (response) =&gt; &#123;</span><br><span class="line">            let $state = $injector.get(&apos;$state&apos;); // 手动注入</span><br><span class="line"></span><br><span class="line">            // 判断权限</span><br><span class="line">            if (response &amp;&amp; response.data &amp;&amp; response.data._NO_PERMISSION_) &#123;</span><br><span class="line">                $state.go(&apos;app.no_permission&apos;, &#123;</span><br><span class="line">                    message: response.data._ERROR_MESSAGE_ || &apos;没有访问权限&apos;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            return response;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 victor cheney
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>angularjs表单验证 | VICTORCHENEY | INNERPEACE</title>
+
+  
+  <meta name="author" content="victor cheney">
+  
+
+  
+  <meta name="description" content="[转]常用的表单验证指令1.必填项验证
+某个表单输入是否已填写，只要在输入字段元素上添加HTML5标记required即可：
+&amp;lt;input type=&amp;quot;text&amp;quot; required /&amp;gt;
+2.最小长度
+验证表单输入的文本长度是否大于某个最小值，在输入字段上使用指令ng-minleng= “{number}”：
+&amp;lt;input type=&amp;quot;text&amp;quot; ng-minlength=&amp;quot;5&amp;quot; /&amp;gt; 
+…">
+  
+
+  
+  
+  <meta name="keywords" content="angularjs">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="angularjs表单验证">
+
+  <meta property="og:site_name" content="VICTORCHENEY">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="VICTORCHENEY" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">VICTORCHENEY</a>
+    </h1>
+    <p class="site-description">INNERPEACE</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>angularjs表单验证</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/01/06/angularjs表单验证/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-01-06T04:44:48.000Z">
+          2017-01-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="转-常用的表单验证指令"><a href="#转-常用的表单验证指令" class="headerlink" title="[转]常用的表单验证指令"></a>[转]常用的表单验证指令</h2><p>1.必填项验证</p>
+<p>某个表单输入是否已填写，只要在输入字段元素上添加HTML5标记required即可：</p>
+<pre><code>&lt;input type=&quot;text&quot; required /&gt;
+</code></pre><p>2.最小长度</p>
+<p>验证表单输入的文本长度是否大于某个最小值，在输入字段上使用指令ng-minleng= “{number}”：</p>
+<pre><code>&lt;input type=&quot;text&quot; ng-minlength=&quot;5&quot; /&gt; 
+</code></pre><p>…<br><a id="more"></a><br>3.最大长度</p>
+<p>验证表单输入的文本长度是否小于或等于某个最大值，在输入字段上使用指令ng-maxlength=”{number}”：</p>
+<pre><code>&lt;input type=&quot;text&quot; ng-maxlength=&quot;20&quot; /&gt;
+</code></pre><p>4.模式匹配</p>
+<p>使用ng-pattern=”/PATTERN/“来确保输入能够匹配指定的正则表达式：</p>
+<pre><code>&lt;input type=&quot;text&quot; ng-pattern=&quot;/[a-zA-Z]/&quot; /&gt;
+</code></pre><p>5.电子邮件</p>
+<p>验证输入内容是否是电子邮件，只要像下面这样将input的类型设置为email即可：</p>
+<pre><code>&lt;input type=&quot;email&quot; name=&quot;email&quot; ng-model=&quot;user.email&quot; /&gt;
+</code></pre><p>6.数字</p>
+<p>验证输入内容是否是数字，将input的类型设置为number：</p>
+<pre><code>&lt;input type=&quot;number&quot; name=&quot;age&quot; ng-model=&quot;user.age&quot; /&gt;
+</code></pre><p>7.URL</p>
+<p> 验证输入内容是否是URL，将input的类型设置为 url：</p>
+<pre><code>&lt;input type=&quot;url&quot; name=&quot;homepage&quot; ng-model=&quot;user.facebook_url&quot; /&gt;
+</code></pre><p> 下面我们将这些表单验证放到具体的实现中来测试一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">  &lt;div class=&quot;col-md-6&quot;&gt;</span><br><span class="line">    &lt;form role=&quot;form&quot; class=&quot;form-horizontal&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;name&quot;&gt;1.必填项&lt;/label&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                &lt;input class=&quot;form-control&quot; id=&quot;name&quot; type=&quot;text&quot; required ng-model=&apos;user.name&apos; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;minlength&quot;&gt;2.最小长度=5&lt;/label&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;text&quot; id=&quot;minlength&quot; ng-minlength=&quot;5&quot; ng-model=&quot;user.minlength&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;minlength&quot;&gt;3.最大长度=20&lt;/label&gt;</span><br><span class="line">　　　　　　　　　&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;text&quot; ng-model=&quot;user.maxlength&quot; ng-maxlength=&quot;20&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;minlength&quot;&gt;4.模式匹配&lt;/label&gt;</span><br><span class="line">           &lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">             &lt;input type=&quot;text&quot; id=&quot;minlength&quot; ng-model=&quot;user.pattern&quot; ng-pattern=&quot;/^[a-zA-Z]*\d$/&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;email&quot;&gt;5.电子邮件&lt;/label&gt;</span><br><span class="line">　　　　　　　　　　&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; ng-model=&quot;user.email&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;age&quot;&gt;6.数字&lt;/label&gt;</span><br><span class="line">　　　　　　　　　　&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;number&quot; id=&quot;age&quot; name=&quot;age&quot; ng-model=&quot;user.age&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                &lt;label for=&quot;url&quot;&gt; 7.URL&lt;/label&gt;</span><br><span class="line">　　　　　　　　　　&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                &lt;input type=&quot;url&quot; id=&quot;url&quot; name=&quot;homepage&quot; ng-model=&quot;user.url&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;form-group text-center&quot;&gt;</span><br><span class="line">            &lt;input class=&quot;btn btn-primary btn-lg&quot; type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/form&gt;       </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;col-md-12&quot;&gt;</span><br><span class="line">    1.必填项:&#123;&#123;user.name&#125;&#125;&lt;br&gt;</span><br><span class="line">    2.最小长度=5:&#123;&#123;user.minlength&#125;&#125;&lt;br&gt;</span><br><span class="line">    3.最大长度=20:&#123;&#123;user.maxlength&#125;&#125;&lt;br&gt;</span><br><span class="line">    4.模式匹配:&#123;&#123;user.pattern&#125;&#125;&lt;br&gt;</span><br><span class="line">    5.电子邮件:&#123;&#123;user.email&#125;&#125;&lt;br&gt;</span><br><span class="line">    6.数字:&#123;&#123;user.age&#125;&#125;&lt;br&gt;</span><br><span class="line">    7.URL:&#123;&#123;user.url&#125;&#125;&lt;br&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>在测试中我们发现，只有当表达式满足验证，才会实时进行双向绑定。同时我们也发现，效果图如下：</p>
+<p>似乎并没有发生什么问题，但是如果我们将其移植到一个队HTML5验证不怎么好的浏览器再来测试一下【本例IE9】，问题来了，某些字段完全没得验证</p>
+<p>其实，上面的例子，我们利用了HTML5的验证与ng自有的验证进行了结合，不支持HTML5验证，但ng自由验证运行良好。解决方案很简单，可以使用模式匹配的方式解决这几种情况，也可以自定义验证指令来复写或者重定义验证规则。</p>
+<p>屏蔽浏览器对表单的默认验证行为<br>在表单元素上添加novalidate标记即可，问题是我们怎么知道我们的表单有哪些字段是有效的，那些事非法或者无效的？ng对此也提供了非常棒的解决方案，表单的属性可以在其所属的$scope对象中访问到，而我们又可以访问$scope对象，因此JavaScript可以间接地访问DOM中的表单属性。借助这些属性，我们可以对表单做出实时响应。</p>
+<p>可以使用formName.inputFieldName.property的格式访问这些属性。</p>
+<p>未修改过的表单</p>
+<p>布尔值属性，表示用户是否修改了表单。如果为ture，表示没有修改过；false表示修改过：</p>
+<pre><code>formName.inputFieldName.$pristine;
+</code></pre><p>修改的表单</p>
+<p>布尔型属性，当且仅当用户实际已经修改的表单。不管表单是否通过验证：</p>
+<pre><code>formName.inputFieldName.$dirty
+</code></pre><p>经过验证的表单</p>
+<p>布尔型属性，它指示表单是否通过验证。如果表单当前通过验证，他将为true：</p>
+<p>formName.inputFieldName.$valid<br>未通过验证的表单</p>
+<p>formName.inputFieldName.$invalid</p>
+<p>最后两个属性在用于DOM元素的显示或隐藏时是特别有用的。同时，如果要设置特定的class时，他们也非常有用的。</p>
+<p>错误<br>这是AngularJS提供的另外一个非常有用的属性：$error对象。它包含当前表单的所有验证内容，以及它们是否合法的信息。用下面的语法访问这个属性</p>
+<p>formName.inputfieldName.$error<br>如果验证失败，这个属性的值为true；如果值为false，说明输入字段的值通过了验证。</p>
+<p>下面我们对这些验证指令进行测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"></span><br><span class="line">&lt;html ng-app=&quot;myTest&quot;&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;</span><br><span class="line">        &lt;title&gt;Index&lt;/title&gt;</span><br><span class="line">        &lt;link href=&quot;~/Content/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot; /&gt;</span><br><span class="line">        &lt;script src=&quot;~/Javascript/angular.min.js&quot;&gt; &lt;/script&gt;</span><br><span class="line">        &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">            body &#123; padding-top: 30px; &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body  ng-Controller=&quot;MyController&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;col-md-6&quot;&gt;</span><br><span class="line">            &lt;form role=&quot;form&quot; name=&quot;myForm&quot; ng-submit=&quot;submitForm(myForm.$valid)&quot; class=&quot;form-horizontal&quot; novalidate&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;name&quot;&gt;1.必填项&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input class=&quot;form-control&quot; id=&quot;name&quot; name=&quot;name&quot; type=&quot;text&quot; required ng-model=&apos;user.name&apos; /&gt;</span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.name.$dirty &amp;&amp; myForm.name.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;minlength&quot;&gt;2.最小长度=5&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;text&quot; id=&quot;minlength&quot; name=&quot;minlength&quot; ng-minlength=&quot;5&quot; ng-model=&quot;user.minlength&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.minlength.$dirty &amp;&amp; myForm.minlength.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;maxlength&quot;&gt;3.最大长度=20&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;text&quot; id=&quot;maxlength&quot; name=&quot;maxlength&quot; ng-model=&quot;user.maxlength&quot; ng-maxlength=&quot;20&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.maxlength.$dirty &amp;&amp; myForm.maxlength.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;pattern&quot;&gt;4.模式匹配&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;text&quot; id=&quot;pattern&quot; name=&quot;pattern&quot; ng-model=&quot;user.pattern&quot; ng-pattern=&quot;/^[a-zA-Z]*\d$/&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.pattern.$dirty &amp;&amp; myForm.pattern.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;email&quot;&gt;5.电子邮件&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; ng-model=&quot;user.email&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.email.$dirty &amp;&amp; myForm.email.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;age&quot;&gt;6.数字&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;number&quot; id=&quot;age&quot; name=&quot;age&quot; ng-model=&quot;user.age&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.age.$dirty &amp;&amp; myForm.age.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  has-feedback&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-4&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;url&quot;&gt; 7.URL&lt;/label&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;col-md-8&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;url&quot; id=&quot;url&quot; name=&quot;url&quot; ng-model=&quot;user.url&quot; class=&quot;form-control&quot; /&gt;</span><br><span class="line">                        &lt;span class=&quot;glyphicon glyphicon-ok form-control-feedback&quot;</span><br><span class="line">                              ng-show=&quot;myForm.url.$dirty &amp;&amp; myForm.url.$valid&quot;&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;form-group  text-center&quot;&gt;</span><br><span class="line">                    &lt;input class=&quot;btn btn-primary btn-lg&quot; ng-disabled=&quot;myForm.$invalid&quot; type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/form&gt;       </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;col-md-12&quot;&gt;</span><br><span class="line">            1.必填项:&#123;&#123;user.name&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.name.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.name.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.name.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.name.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            required：&#123;&#123;myForm.name.$error.required&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            &lt;br&gt;</span><br><span class="line">            2.最小长度=5:&#123;&#123;user.minlength&#125;&#125;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.minlength.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.minlength.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.minlength.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.minlength.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $error【错误详情】：&#123;&#123;myForm.minlength.$error&#125;&#125;&amp;nbsp;&amp;nbsp;&lt;br&gt;</span><br><span class="line">            3.最大长度=20:&#123;&#123;user.maxlength&#125;&#125;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.maxlength.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.maxlength.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.maxlength.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.maxlength.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $error【错误详情】：&#123;&#123;myForm.maxlength.$error&#125;&#125;&amp;nbsp;&amp;nbsp;&lt;br&gt;</span><br><span class="line">            4.模式匹配:&#123;&#123;user.pattern&#125;&#125;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.pattern.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.pattern.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.pattern.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.pattern.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $error【错误详情】：&#123;&#123;myForm.pattern.$error&#125;&#125;&amp;nbsp;&amp;nbsp;&lt;br&gt;</span><br><span class="line">            5.电子邮件:&#123;&#123;user.email&#125;&#125;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.email.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.email.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.email.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.email.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $error【错误详情】：&#123;&#123;myForm.email.$error&#125;&#125;&amp;nbsp;&amp;nbsp;&lt;br&gt;</span><br><span class="line">            6.数字:&#123;&#123;user.age&#125;&#125;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.age.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.age.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.age.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.age.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $error【错误详情】：&#123;&#123;myForm.age.$error&#125;&#125;&amp;nbsp;&amp;nbsp;&lt;br&gt;</span><br><span class="line">            7.URL:&#123;&#123;user.url&#125;&#125;</span><br><span class="line">            $pristine 【没修改】：&#123;&#123;myForm.url.$pristine &#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $dirty【修改过】：&#123;&#123;myForm.url.$dirty&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证失败】：&#123;&#123;myForm.url.$invalid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $invalid【验证成功】：&#123;&#123;myForm.url.$valid&#125;&#125;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            $error【错误详情】：&#123;&#123;myForm.url.$error&#125;&#125;&amp;nbsp;&amp;nbsp;&lt;br&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    angular.module(&apos;myTest&apos;, [])</span><br><span class="line">        .controller(&apos;myController&apos;, function($scope) &#123;</span><br><span class="line">            $scope.submitForm = function(isValid) &#123;</span><br><span class="line">                if (!isValid) &#123;</span><br><span class="line">                    alert(&apos;验证失败&apos;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        );</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p>同时，ng针对这几种验证指令，针对性的设置了一些css样式</p>
+<p>它们包括：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.ng-valid         &#123;  &#125;</span><br><span class="line">.ng-invalid     &#123;  &#125;</span><br><span class="line">.ng-pristine     &#123;  &#125;</span><br><span class="line">.ng-dirty         &#123;  &#125;</span><br><span class="line">/* really specific css rules applied by angular */</span><br><span class="line">.ng-invalid-required         &#123;  &#125;</span><br><span class="line">.ng-invalid-minlength         &#123;  &#125;</span><br><span class="line">.ng-valid-max-length         &#123;  &#125;</span><br></pre></td></tr></table></figure>
+<p>它们对应着表单输入字段的特定状态。<br>例如当某个字段中的输入非法时，.ng-invlid类会被添加到这个字段上。 你可以编辑自己喜欢的CSS .你可以私有定制化这些类来实现特定的场景应用.</p>
+<p> 但是，默认的验证指令不一定能够，完全满足我们的真实应用场景，ng同样提供的自定义验证指令的功能。</p>
+<p>首先我们来看一个简单的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&quot;myTest&quot;, [])</span><br><span class="line">  .directive(&apos;multipleEmail&apos;, [function () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">          require: &quot;ngModel&quot;,</span><br><span class="line">          link: function (scope, element, attr, ngModel) &#123;</span><br><span class="line">              if (ngModel) &#123;</span><br><span class="line">                  var emailsRegexp = /^([a-z0-9!#$%&amp;&apos;*+\/=?^_`&#123;|&#125;~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*[;；]?)+$/i;</span><br><span class="line">              &#125;</span><br><span class="line">              var customValidator = function (value) &#123;</span><br><span class="line">                  var validity = ngModel.$isEmpty(value) || emailsRegexp.test(value);</span><br><span class="line">                  ngModel.$setValidity(&quot;multipleEmail&quot;, validity);</span><br><span class="line">                  return validity ? value : undefined;</span><br><span class="line">              &#125;;</span><br><span class="line">              ngModel.$formatters.push(customValidator);</span><br><span class="line">              ngModel.$parsers.push(customValidator);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;])</span><br></pre></td></tr></table></figure>
+<p>页面Html部分代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot; id=&quot;custom_form&quot; name=&quot;custom_form&quot; novalidate&gt;</span><br><span class="line">    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">        &lt;label class=&quot;col-sm-2 control-label&quot;&gt;多个email&lt;/label&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;col-sm-10&quot;&gt;</span><br><span class="line">            &lt;input multiple-email name=&quot;user_email&quot; ng-model=&quot;user.email&quot; required class=&quot;form-control&quot; placeholder=&quot;自定义验证，多个邮箱地址，以“；”或者“;”分割&quot; /&gt;</span><br><span class="line">            验证通过：&#123;&#123;custom_form.user_email.$valid&#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;form-group  text-center&quot;&gt;</span><br><span class="line">        &lt;input class=&quot;btn btn-primary btn-lg&quot; ng-disabled=&quot;custom_form.$invalid&quot; type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>代码非常的简单，实现的效果如下所示：</p>
+<h3 id="这段代码很简单，但是涉及到了ngModelController的几个重要的属性"><a href="#这段代码很简单，但是涉及到了ngModelController的几个重要的属性" class="headerlink" title="这段代码很简单，但是涉及到了ngModelController的几个重要的属性"></a>这段代码很简单，但是涉及到了ngModelController的几个重要的属性</h3><h4 id="viewValue"><a href="#viewValue" class="headerlink" title="$viewValue"></a><code>$viewValue</code></h4><p>$viewValue属性保存着更新视图所需的实际字符串。</p>
+<h4 id="modelValue"><a href="#modelValue" class="headerlink" title="$modelValue"></a><code>$modelValue</code></h4><p>$modelValue由数据模型持有。$modelValue和$viewValue可能是不同的，取决于$parser流水线是否对其进行了操作。</p>
+<h4 id="parsers"><a href="#parsers" class="headerlink" title="$parsers"></a><code>$parsers</code></h4><p>$parsers的值是一个由函数组成的数组，当用户同控制器进行交互，并且ngModelController中的$setViewValue()方法被调用时，其中的函数在当用户同控制器进行交互，并且ngModelController中的$setViewValue()方法被调会以流水线的形式被逐一调用。ngModel从DOM中读取的值会被传入$parsers中的函数，并依次被其中的解析器处理。这是为了对值进行处理和修饰。</p>
+<p>备注：ngModel.$setViewValue()函数用于设置作用域中的视图值。</p>
+<p>ngModel.$set ViewValue()函数可以接受一个参数。</p>
+<p><code>value</code>（字符串）：value参数是我们想要赋值给ngModel实例的实际值。<br>这个方法会更新控制器上本地的$viewValue，然后将值传递给每一个$parser函数（包括验证器）。当值被解析，且$parser流水线中所有的函数都调用完成后，值会被赋给$modelValue属性，并且传递给指令中ng-model属性提供的表达式。最后，所有步骤都完成后，$viewChangeListeners中所有的监听器都会被调用。注意，单独调用$setViewValue()不会唤起一个新的digest循环，因此如果想更新指令，需要在设置$viewValue后手动触发digest。$setViewValue()方法适合于在自定义指令中监听自定义事件（比如使用具有回调函数的jQuery插件），我们会希望在回调时设置$viewValue并执行digest循环。</p>
+<h4 id="formatters"><a href="#formatters" class="headerlink" title="$formatters"></a><code>$formatters</code></h4><p>$formatters的值是一个由函数组成的数组，其中的函数会以流水线的形式在数据模型的值发生变化时被逐一调用。它和$parser流水线互不影响，用来对值进行格式化和转换，以便在绑定了这个值的控件中显示。</p>
+<h4 id="viewChangeListeners"><a href="#viewChangeListeners" class="headerlink" title="$viewChangeListeners"></a><code>$viewChangeListeners</code></h4><p>$viewChangeListeners的值是一个由函数组成的数组，其中的函数会以流水线的形式在视图中的值发生变化时被逐一调用。通过$viewChangeListeners，可以在无需使用$watch的情况下实现类似的行为。由于返回值会被忽略，因此这些函数不需要返回值。</p>
+<h4 id="error"><a href="#error" class="headerlink" title="$error"></a><code>$error</code></h4><p>$error对象中保存着没有通过验证的验证器名称以及对应的错误信息。</p>
+<h4 id="pristine"><a href="#pristine" class="headerlink" title="$pristine"></a><code>$pristine</code></h4><p>$pristine的值是布尔型的，可以告诉我们用户是否对控件进行了修改。</p>
+<h4 id="dirty"><a href="#dirty" class="headerlink" title="$dirty"></a><code>$dirty</code></h4><p>$dirty的值和$pristine相反，可以告诉我们用户是否和控件进行过交互。</p>
+<h4 id="valid"><a href="#valid" class="headerlink" title="$valid"></a><code>$valid</code></h4><p>$valid值可以告诉我们当前的控件中是否有错误。当有错误时值为false，没有错误时值为true。</p>
+<h4 id="invalid"><a href="#invalid" class="headerlink" title="$invalid"></a><code>$invalid</code></h4><p>$invalid值可以告诉我们当前控件中是否存在至少一个错误，它的值和$valid相反。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 victor cheney
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

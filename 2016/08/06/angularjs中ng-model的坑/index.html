@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>angularjs中ng-model的坑 | VICTORCHENEY | INNERPEACE</title>
+
+  
+  <meta name="author" content="victor cheney">
+  
+
+  
+  <meta name="description" content="[转]angular中指令被用的最多的除了ng-repeat之外就非他莫属了吧，由于各种业务的需求，我们经常需要去写一些继承ngModel的指令，来满足各种奇葩需求，最多的莫过于表单的验证啦，另外你在封装一些jquery插件的时候，也是需要继承ngModel的，最典型的莫过于 datepicker、fileUpload等等。…">
+  
+
+  
+  
+  <meta name="keywords" content="angularjs">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="angularjs中ng-model的坑">
+
+  <meta property="og:site_name" content="VICTORCHENEY">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="VICTORCHENEY" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">VICTORCHENEY</a>
+    </h1>
+    <p class="site-description">INNERPEACE</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>angularjs中ng-model的坑</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/06/angularjs中ng-model的坑/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-06T05:33:31.000Z">
+          2016-08-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>[转]<br>angular中指令被用的最多的除了ng-repeat之外就非他莫属了吧，由于各种业务的需求，我们经常需要去写一些继承ngModel的指令，来满足各种奇葩需求，最多的莫过于表单的验证啦，另外你在封装一些jquery插件的时候，也是需要继承ngModel的，最典型的莫过于 datepicker、fileUpload等等。…<br><a id="more"></a></p>
+<p>但是ngModel本身其实有很多坑，在这里分享给大家，如果大家又遇到其他问题，欢迎补充：</p>
+<p>首先我们要知道一些概念的东西，这里我就不占篇幅了，不了解的可以先去看看这篇文章：</p>
+<p><a href="http://www.cnblogs.com/liulangmao/p/4110137.html" target="_blank" rel="noopener">http://www.cnblogs.com/liulangmao/p/4110137.html</a></p>
+<p>在这里，我基本分为两种问题，一种是viewValue和modelValue不同的问题，另一种是管道问题</p>
+<h2 id="第一种：viewValue和modelValue不同的问题"><a href="#第一种：viewValue和modelValue不同的问题" class="headerlink" title="第一种：viewValue和modelValue不同的问题"></a>第一种：viewValue和modelValue不同的问题</h2><p>1.viewValue想变成modelValue<br>2.modelValue想变成ViewValue<br>3.moduleValue想和viewModel不一样<br>4.viewModel和DOM元素的值不一样</p>
+<p>要想解决这些问题，我们先来了解一些$apply的一个问题，那就是执行$apply之后数据是以什么为主的</p>
+<p>①viewValue -&gt; modelValue<br>②modelValue -&gt; viewValue,于是我们写了下面这个指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; ng-model=&quot;vm.modelTest&quot; model-test&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line">.directive(&apos;modelTest&apos;,function()&#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    require : &apos;ngModel&apos;,</span><br><span class="line">    link : function(scope,iElm,iAttrs,ngModelCtrl)&#123;</span><br><span class="line">      iElm.on(&apos;mouseenter&apos;,function()&#123;</span><br><span class="line">        console.info(&quot;打印出更改之后，没有执行$apply的值&quot;)</span><br><span class="line">        console.log(ngModelCtrl);</span><br><span class="line"></span><br><span class="line">        // 更改modelValue的值</span><br><span class="line">        ngModelCtrl.$modelValue = &quot;test change&quot;;</span><br><span class="line">        console.info(&quot;打印出更改之后，没有执行$apply的值&quot;)</span><br><span class="line">        console.log(ngModelCtrl);</span><br><span class="line"></span><br><span class="line">        //执行$apply</span><br><span class="line">        scope.$apply();</span><br><span class="line">        console.info(&quot;打印出更改之后，执行$apply的值&quot;)</span><br><span class="line">        console.log(ngModelCtrl);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>从上面的指令，我们不难得出一个比较武断的结论 $apply会根据viewValue的值而改变modelValue的值，也就是modelValue -&gt; viewValue，那么，我们可以开始解决我们的问题了.</p>
+<p><strong>1.viewValue想变成modelValue</strong><br>这种情况很少， 但是如果你在jq的操作就可能发生这种需求，一般依然还是$apply让model的值重新更新，使用了$apply就会触发$render()函数，因为modelValue的变化，会导致$render触发<br><strong>2.modelValue想变成ViewValue</strong>　(看了上面的实验，我想你应该懂了，直接使用$apply)<br><strong>3.moduleValue想和viewModel不一样</strong><br>一般情况都会使用管道去解决，但是有个其他思路可以提供给大家,下面这段代码是在国外看到的，觉得挺不错的，效果大家可以去尝试下，将model的值变成数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ngModelCtrl.$viewChangeListeners.push(function()&#123;</span><br><span class="line">      $parse(iAttrs.ngModel).assign(scope, ngModelCtrl.$viewValue.split(&apos;,&apos;)); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="第二种：管道问题"><a href="#第二种：管道问题" class="headerlink" title="第二种：管道问题"></a>第二种：管道问题</h3><p>管道是什么呢，在ngModel里面其实就是view视图和model视图数据交互的时候需要经过的数组或对象，这个数组或对象由方法组成，每次经过都会执行数组里面的方法，并返回结果。一共有四种管道</p>
+<p><strong>$formatters</strong> ：它是model视图转向view视图的管道（数组），model的值会经过他才转变成view视图的值，另外它的调用顺序是最特别的，从后往前调用，，越在数组后面，越早调用。<br><strong>$parsers</strong> : 它正好是跟$formatters相反，是view视图转向model视图的管道（数组），view的值会经过他才转变成model视图的值，在1.2.x（兼容IE8）之前一般我们会在这里实现或扩展验证功能<br><strong>$validators</strong>：这是在1.3.x之后出现的管道（json对象），来帮助我们实现和扩展验证功能的，当我们进入$parsers的同时，同时也会进入$validators，在这里我贴段源码（验证required）给大家看看，我想大家应该能理解这个管道的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl.$validators.required = function(modelValue, viewValue) &#123;</span><br><span class="line">        return !attr.required || !ctrl.$isEmpty(viewValue);</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>$asyncValidators</strong> :功能与$validators相似，不同的是他可以实现异步验证，你可以在管道内部执行异步处理，会在结果返回之后，才去设置验证结果，这是个大课题，我看到有人讨论过，我也就不详细讲了<a href="http://www.cnblogs.com/liulangmao/p/4118868.html" target="_blank" rel="noopener">http://www.cnblogs.com/liulangmao/p/4118868.html</a><br>可以进去这个博客看看</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 victor cheney
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
