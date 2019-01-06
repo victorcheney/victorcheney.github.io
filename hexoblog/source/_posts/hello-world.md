@@ -1,5 +1,6 @@
 ---
 title: Hexo相关操作
+date: 2016-01-06 12:44:48
 tags: "hexo"
 ---
 
@@ -16,6 +17,8 @@ Hacker主题：[https://github.com/CodeDaraW/Hacker](https://github.com/CodeDara
 ``` bash
 $ hexo new "My New Post"
 ```
+
+...
 <!--more-->
 More info: [Writing](https://hexo.io/docs/writing.html)
 
