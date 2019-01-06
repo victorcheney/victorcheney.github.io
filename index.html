@@ -65,6 +65,113 @@
 
   
     
+    <h3 class="article-title"><a href="/2018/03/10/计算两个经纬度坐标与正北方向夹角/"><span>计算两个经纬度坐标与正北方向夹角</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/03/10/计算两个经纬度坐标与正北方向夹角/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-03-10T08:16:15.000Z">
+          2018-03-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="根据两个已知经纬度坐标点A、B计算B相对A与正北方向夹角"><a href="#根据两个已知经纬度坐标点A、B计算B相对A与正北方向夹角" class="headerlink" title="根据两个已知经纬度坐标点A、B计算B相对A与正北方向夹角"></a>根据两个已知经纬度坐标点A、B计算B相对A与正北方向夹角</h3><p>如图</p>
+<p><img src="1.png" alt="1.png"></p>
+<p>js代码如下：</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/leaflet/">leaflet</a><a href="/tags/map/">map</a><a href="/tags/javascript/">javascript</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/03/06/javascript实现Haversine公式计算两个经纬度坐标点距离/"><span>javascript实现Haversine公式计算两个经纬度坐标点距离</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/03/06/javascript实现Haversine公式计算两个经纬度坐标点距离/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-03-06T07:47:24.000Z">
+          2018-03-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="javascript实现Haversine公式计算两坐标点距离"><a href="#javascript实现Haversine公式计算两坐标点距离" class="headerlink" title="javascript实现Haversine公式计算两坐标点距离"></a>javascript实现Haversine公式计算两坐标点距离</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//javascript实现Haversine公式</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 角度转弧度</span><br><span class="line">* @param &#123;Number&#125; degree</span><br><span class="line">*/</span><br><span class="line">function toRadians(degree) &#123;</span><br><span class="line">    return degree * Math.PI / 180;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/leaflet/">leaflet</a><a href="/tags/javascript/">javascript</a><a href="/tags/Haversine/">Haversine</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/10/14/AngularJS验证用户名的自定义指令/"><span>AngularJS验证用户名的自定义指令</span></a></h3>
     
   
@@ -86,10 +193,62 @@
     <div class="entry">
       
         <h2 id="Angularjs表单验证中，验证用户名是否唯一"><a href="#Angularjs表单验证中，验证用户名是否唯一" class="headerlink" title="Angularjs表单验证中，验证用户名是否唯一"></a>Angularjs表单验证中，验证用户名是否唯一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;demo.form&apos;)</span><br><span class="line">.directive(&apos;ensureUnique&apos;, [&apos;$http&apos;, ($http) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    require: &apos;ngModel&apos;,</span><br><span class="line">    link: (scope, ele, attrs, c) =&gt; &#123;</span><br><span class="line">      scope.$watch(attrs.ngModel, () =&gt; &#123;</span><br><span class="line">        $https(&#123;</span><br><span class="line">          method: &apos;POST&apos;,</span><br><span class="line">          url: &apos;/api/check/&apos; + attrs.ensureUnique,</span><br><span class="line">          data: &#123;&apos;field&apos;: attrs.ensureUnique&#125;</span><br><span class="line">        &#125;).success((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, data.isUnique)</span><br><span class="line">        &#125;).error((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, false);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
-<p>第三方插件<br>bindonece 单项绑定<br>html2js 将html打包成js文件</p>
-<p>扩展第三方组件：<br>$provide.decorator</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">app.config(function($provide) &#123;</span><br><span class="line">    $provide.decorator(&apos;fooDirectve&apos;, function($delegate) &#123;</span><br><span class="line">        var directive = $delegate[0];</span><br><span class="line"></span><br><span class="line">        directive.scope.fn = &apos;&amp;&apos;;</span><br><span class="line">        var link = directive.link;</span><br><span class="line"></span><br><span class="line">        directive.compile = function() &#123;</span><br><span class="line">            return funtion(scope, element, attrs) &#123;</span><br><span class="line">                link.apply(this, arguments);</span><br><span class="line">                element.bind(&apos;click&apos;, function() &#123;</span><br><span class="line">                    scope.$apply(funtion() &#123;</span><br><span class="line">                        scope.fn();</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return $delegate;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>…<br>
+      
+    </p></div>
 
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/04/Leaflet插件收藏/"><span>Leaflet插件收藏</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/04/Leaflet插件收藏/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-04T06:06:50.000Z">
+          2017-08-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="收集了leaflet常用的一些插件的连接地址"><a href="#收集了leaflet常用的一些插件的连接地址" class="headerlink" title="收集了leaflet常用的一些插件的连接地址"></a>收集了leaflet常用的一些插件的连接地址</h3><p>Docs地址：<a href="https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html" target="_blank" rel="noopener">https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html</a></p>
+<p>leaflet：<a href="http://leafletjs.com/examples/quick-start/" target="_blank" rel="noopener">http://leafletjs.com/examples/quick-start/</a></p>
+<p>mapbox：<a href="https://www.mapbox.com/mapbox.js/api/v3.0.1/" target="_blank" rel="noopener">https://www.mapbox.com/mapbox.js/api/v3.0.1/</a></p>
+<p>FeatureGroup：<a href="https://www.mapbox.com/mapbox.js/api/v3.0.1/l-featuregroup/#featuregroup" target="_blank" rel="noopener">https://www.mapbox.com/mapbox.js/api/v3.0.1/l-featuregroup/#featuregroup</a></p>
       
     </div>
 
@@ -105,7 +264,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
+        <a href="/tags/leaflet/">leaflet</a><a href="/tags/map/">map</a>
     </span>
     
 
@@ -290,6 +449,59 @@
 
   
     
+    <h3 class="article-title"><a href="/2016/11/03/Cesium基础操作/"><span>Cesium基础操作</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/11/03/Cesium基础操作/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-03T03:35:58.000Z">
+          2016-11-03
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><style><br>table{<br>  border:0;margin:0;border-collapse:collapse;border-spacing:0;<br>  font-size: 13px;<br>}<br></style></p>
+<h3 id="1-初始化viewer对象"><a href="#1-初始化viewer对象" class="headerlink" title="1. 初始化viewer对象"></a>1. 初始化viewer对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//创建cesium Viewer</span><br><span class="line">viewer = new Cesium.Viewer(‘cesiumContainer’,&#123;</span><br><span class="line">  animation:false, //是否创建动画小器件，左下角仪表</span><br><span class="line">  baseLayerPicker:false, //是否显示图层选择器</span><br><span class="line">  fullscreenButton:false, //是否显示全屏按钮</span><br><span class="line">  geocoder:false, //是否显示geocoder小器件，右上角查询按钮</span><br><span class="line">  homeButton:false, //是否显示Home按钮</span><br><span class="line">  infoBox : false, //是否显示信息框</span><br><span class="line">  sceneModePicker:false, //是否显示3D/2D选择器</span><br><span class="line">  selectionIndicator : false , //是否显示选取指示器组件</span><br><span class="line">  timeline:false, //是否显示时间轴</span><br><span class="line">  navigationHelpButton:false, //是否显示右上角的帮助按钮</span><br><span class="line">  scene3DOnly : true, //如果设置为true，则所有几何图形以3D模式绘制以节约GPU资源</span><br><span class="line">  navigationInstructionsInitiallyVisible:false,</span><br><span class="line">  showRenderLoopErrors:false,</span><br><span class="line">  imageryProvider : new Cesium.OpenStreetMapImageryProvider(&#123; url : &apos;//a.tile.openstreetmap.org/&apos; &#125;) //加载自定义地图瓦片需要指定一个自定义图片服务器//URL 为瓦片数据服务器地址</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Cesium/">Cesium</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2016/10/20/AngularJS源码之ng-style/"><span>AngularJS源码之ng-style</span></a></h3>
     
   
@@ -392,223 +604,11 @@
 
 
 
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/07/16/AngularJS指令进阶–ngModelController详解/"><span>AngularJS指令进阶–ngModelController详解</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/07/16/AngularJS指令进阶–ngModelController详解/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-07-16T10:15:11.000Z">
-          2016-07-16
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>在自定义Angular指令时，其中有一个叫做require的字段，这个字段的作用是用于指令之间的相互交流。举个简单的例子，假如我们现在需要编写两个指令，在linking函数中有很多重合的方法，为了避免重复自己（著名的DRY原则），我们可以将这个重复的方法写在第三个指令的controller中，然后在另外两个需要的指令中require这个拥有controller字段的指令，最后通过linking函数的第四个参数就可以引用这些重合的方法。代码的结构大致如下：<br>…<br>
-      
-    </p></div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/07/15/AngularJS执行流程详解/"><span>AngularJS执行流程详解</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/07/15/AngularJS执行流程详解/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-07-15T13:26:44.000Z">
-          2016-07-15
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="一、启动阶段"><a href="#一、启动阶段" class="headerlink" title="一、启动阶段"></a>一、启动阶段</h2><p>大家应该都知道，当浏览器加载一个HTML页面时，它会将HMTL页面先解析成DOM树，然后逐个加载DOM树中的每一个元素节点。我们可以把AngularJS当做一个类似jQuery的js库，我们通过<code>&lt;script&gt;</code>标签引入到HTML中，那么此时Angular就做为一个普通的DOM节点等待浏览器解析，当浏览器解析到这个节点时，发现它是一个js文件，那么浏览器会停止解析剩余的DOM节点，开始执行这个js（即angular.js），同时Angular会设置一个事件监听器来监听浏览器的DOMContentLoaded事件。当Angular监听到这个事件时，就会启动Angular应用。…</p>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/07/12/angularjs问题总结/"><span>angularjs问题总结</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/07/12/angularjs问题总结/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-07-12T12:49:28.000Z">
-          2016-07-12
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="1-动态添加html代码-中的ng指令问题"><a href="#1-动态添加html代码-中的ng指令问题" class="headerlink" title="1.动态添加html代码 中的ng指令问题"></a>1.动态添加html代码 中的ng指令问题</h2><p>调用$compile重新编译这部分代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">app.directive(&quot;showtip&quot;,[&apos;$compile&apos;,function($compile)&#123;</span><br><span class="line">  return &#123;</span><br><span class="line">      restrict : &quot;A&quot;,</span><br><span class="line">      scope: false,</span><br><span class="line">      replace: true,</span><br><span class="line">      link : function(scope,element,attrs)&#123;</span><br><span class="line">          // element.on(&quot;click&quot;,function ($event) &#123;</span><br><span class="line">          //     scope.showTip = true;</span><br><span class="line">          //     $event.stopPropagation();</span><br><span class="line">          // &#125;);</span><br><span class="line">          setInterval(function()&#123;</span><br><span class="line">              scope.$apply();</span><br><span class="line">          &#125;, 0);</span><br><span class="line">          var el=$compile(element.contents())(scope);</span><br><span class="line">          // elem.contents().remove();</span><br><span class="line">          element.append(el);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
-<p>…<br>
-      
-    </p></div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/01/06/hello-world/"><span>Hexo相关操作</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/01/06/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-01-06T04:44:48.000Z">
-          2016-01-06
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>文档：<a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/commands</a></p>
-<p>Hacker主题：<a href="https://github.com/CodeDaraW/Hacker" target="_blank" rel="noopener">https://github.com/CodeDaraW/Hacker</a></p>
-<p>多设备方案：<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="noopener">https://www.zhihu.com/question/21193762</a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>…<br>
-      
-    </p></div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/hexo/">hexo</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
 
 <nav class="pagination">
   
+  
+  <a href="/page/2/" class="pagination-next">Next</a>
   
 </nav>
     </main>
