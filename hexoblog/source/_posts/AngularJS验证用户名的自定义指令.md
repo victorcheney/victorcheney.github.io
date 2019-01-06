@@ -28,6 +28,9 @@ angular.module('demo.form')
 }]);
 ```
 
+...
+<!-- more -->
+
 第三方插件
 bindonece 单项绑定
 html2js 将html打包成js文件
