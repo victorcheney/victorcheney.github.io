@@ -1,7 +1,10 @@
 ---
 title: AngularJS 用 Interceptors 来统一处理 HTTP 请求和响应
 date: 2017-01-06 12:29:27
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 ## 主要功能

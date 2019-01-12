@@ -1,6 +1,8 @@
 ---
 title: Cesium基础操作
 date: 2016-11-03 11:35:58
+categories: 
+  - Chart&DataVisualization
 tags:
   - Cesium
 ---

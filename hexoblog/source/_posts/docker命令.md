@@ -1,6 +1,8 @@
 ---
 title: docker命令
 date: 2018-01-12 21:13:28
+categories: 
+  - Docker
 tags:
   - Docker
 ---

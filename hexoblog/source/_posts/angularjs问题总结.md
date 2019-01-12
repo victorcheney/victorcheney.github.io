@@ -1,7 +1,10 @@
 ---
 title: angularjs问题总结
 date: 2016-07-12 20:49:28
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 ## 1.动态添加html代码 中的ng指令问题

@@ -1,7 +1,10 @@
 ---
 title: AngularJS验证用户名的自定义指令
 date: 2017-10-14 14:01:04
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 ## Angularjs表单验证中，验证用户名是否唯一

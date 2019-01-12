@@ -1,7 +1,10 @@
 ---
 title: AngularJS指令进阶–ngModelController详解
 date: 2016-07-16 18:15:11
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 在自定义Angular指令时，其中有一个叫做require的字段，这个字段的作用是用于指令之间的相互交流。举个简单的例子，假如我们现在需要编写两个指令，在linking函数中有很多重合的方法，为了避免重复自己（著名的DRY原则），我们可以将这个重复的方法写在第三个指令的controller中，然后在另外两个需要的指令中require这个拥有controller字段的指令，最后通过linking函数的第四个参数就可以引用这些重合的方法。代码的结构大致如下：

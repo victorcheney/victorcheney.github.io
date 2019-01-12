@@ -1,6 +1,9 @@
 ---
 title: javascript实现Haversine公式计算两个经纬度坐标点距离
 date: 2018-03-06 15:47:24
+categories: 
+  - Chart&DataVisualization
+  - Leaflet
 tags: 
   - Haversine 
   - javascript 

@@ -1,7 +1,10 @@
 ---
 title: AngularJS执行流程详解
 date: 2016-07-15 21:26:44
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 ## 一、启动阶段

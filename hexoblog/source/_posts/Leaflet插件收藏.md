@@ -1,6 +1,9 @@
 ---
 title: Leaflet插件收藏
 date: 2017-08-04 14:06:50
+categories: 
+  - Chart&DataVisualization
+  - Leaflet
 tags: 
   - leaflet
   - map

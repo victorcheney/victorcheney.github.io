@@ -1,7 +1,10 @@
 ---
 title: 浏览器navigator对象
 date: 2017-01-01
-tags: javascript
+categraies: 
+	- JavaScript
+tags: 
+	- javascript
 ---
 
 # navigator
@@ -23,7 +26,7 @@ Navigator 对象包含有关浏览器的信息。
 >appMinorVersion----------------	返回浏览器的次级版本。
 >
 >appName-------------------------	返回浏览器的名称。
-
+>
 >appVersion-----------------------	返回浏览器的平台和版本信息。
 >
 >browserLanguage---------------	返回当前浏览器的语言。

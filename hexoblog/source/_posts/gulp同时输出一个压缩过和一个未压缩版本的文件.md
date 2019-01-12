@@ -1,6 +1,8 @@
 ---
 title: gulp同时输出一个压缩过和一个未压缩版本的文件
 date: 2017-02-12 21:24:50
+categories: 
+  - Gulp
 tags:
   - gulp
 ---

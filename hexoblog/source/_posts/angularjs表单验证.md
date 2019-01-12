@@ -1,7 +1,10 @@
 ---
 title: angularjs表单验证
 date: 2017-01-06 12:44:48
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 ## [转]常用的表单验证指令

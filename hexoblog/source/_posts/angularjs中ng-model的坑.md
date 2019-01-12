@@ -1,7 +1,10 @@
 ---
 title: angularjs中ng-model的坑
 date: 2016-08-06 13:33:31
-tags: angularjs
+categories: 
+  - AngularJS
+tags: 
+  - angularjs
 ---
 
 [转]
