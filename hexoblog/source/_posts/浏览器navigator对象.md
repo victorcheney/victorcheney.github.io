@@ -4,7 +4,7 @@ date: 2017-01-01
 categraies: 
 	- JavaScript
 tags: 
-	- javascript
+	- JavaScript
 ---
 
 # navigator
@@ -12,14 +12,14 @@ tags:
 Navigator 对象包含有关浏览器的信息。
 
 注释：没有应用于 navigator 对象的公开标准，不过所有浏览器都支持该对象。
-###Navigator 对象集合###
+### Navigator 对象集合###
 >集合：plugins[]
 >
 >描述：返回对文档中所有嵌入式对象的引用。
 该集合是一个 Plugin 对象的数组，其中的元素代表浏览器已经安装的插件。Plug-in 对象提供的是有关插件的信息，其中包括它所支持的 MIME 类型的列表。
 虽然 plugins[] 数组是由 IE 4 定义的，但是在 IE 4 中它却总是空的，因为 IE 4 不支持插件和 Plugin 对象。
 <!--more-->
-###Navigator 对象属性###
+### Navigator 对象属性###
 
 >appCodeName	 ------------------返回浏览器的代码名。
 >
@@ -45,7 +45,7 @@ Navigator 对象包含有关浏览器的信息。
 >
 >userLanguage---------------------返回 OS 的自然语言设置。
 
-###Navigator 对象方法###
+### Navigator 对象方法###
 
 >javaEnabled()----------------------规定浏览器是否启用 Java。
 >
