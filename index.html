@@ -65,6 +65,104 @@
 
   
     
+    <h3 class="article-title"><a href="/2019/01/12/Ubuntu命令之解压、安装node、防火墙操作/"><span>Ubuntu命令之解压、安装node、防火墙操作</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/01/12/Ubuntu命令之解压、安装node、防火墙操作/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-01-12T13:43:46.000Z">
+          2019-01-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="1、解压rar压缩文件"><a href="#1、解压rar压缩文件" class="headerlink" title="1、解压rar压缩文件"></a>1、解压rar压缩文件</h3><p>Ubuntu刚安装的时候是不能解压rar文件的，只有在安装了解压工具之后，才可以解压。</p>
+<p>安装：<code>sudo apt-get install unrar</code></p>
+<p>卸载：<code>sudo apt-get remove unrar</code></p>
+<p>unrar常用命令主要有:</p>
+<p><code>e</code> – 将文件解压到当前目录<br>  例:rar e test.rar<br>    注:用e解压的话，不仅原来的file1.txt和file2.txt被解压到当前目录，就连dir1里面的所有文件<br>    也被解压到当前目录下，不能保持压缩前的目录结构，如果想保持压缩前的目录结构，用x解压</p>
+<p><code>x</code> – 带路径解压文档中内容到当前目录<br>  例:rar x test.rar<br>    这样解压的话，dir1就会保持原来的目录结构</p>
+<p><code>a</code> – 添加文件到操作文档<br>例:rar a test.rar file1.txt 若test.rar文件不存在，则打包file1.txt文件成test.rar<br>    例:rar a test.rar file2.txt 若test.rar文件已经存在，则添加file2.txt文件到test.rar中<br>    (这样test.rar中就有两个文件了）<br>    注，如果操作文档中已有某文件的一份拷贝，则a命令更新该文件，对目录也可以进行操作<br>  例:rar a test.rar dir1</p>
+<p><code>c</code> – 对操作文档添加说明注释<br>  <code>rar c test.rar</code><br>    （会出现Reading comment from stdin字样，然后输入一行或多行注释，以ctrl+d结束）<br>    cf 添加文件注释，类似上面的c，不过这个是对压缩文档中每个文件进行注释<br>    cw 将文档注释写入文件<br>    例:<code>rar cw test.rar comment.txt</code></p>
+<p><code>d</code> – 从文档中删除文件<br>    例: <code>rar d test.rar file1.txt</code></p>
+<p><code>k</code> – 锁定文档<br>  例: <code>rar k test.rar</code> 锁定文档后，该文档就无法进行任何更新操作了</p>
+<p><code>r</code> – 修复文档<br>  例: <code>rar r test.rar</code><br>    当rar文件有问题时，可以尝试用该命令进行修复（鬼知道有多少用）</p>
+<p><code>s</code> – 转换文档成自解压文档<br>  例: <code>rar s test.rar</code><br>    会生成一个test.sfx的可执行文档，运行它的效果就相当于rar x test.rar，<br>    适合于向没有rar的用户传输文件</p>
+<p><code>t</code> – 检测文档<br>  例: <code>rar t test.rar</code><br>    检测test.rar的完整性，一般压缩完大型文件准备传输前最好用这个命令来确保文件的正确性</p>
+<h3 id="2、安装指定版本node"><a href="#2、安装指定版本node" class="headerlink" title="2、安装指定版本node"></a>2、安装指定版本node</h3><p>下载指定版本压缩包（<a href="https://nodejs.org/download/release/" target="_blank" rel="noopener">https://nodejs.org/download/release/</a>）</p>
+<p>通过命令下载到指定文件夹</p>
+<pre><code>wget https://nodejs.org/download/release/v6.14.1/node-v6.14.1-linux-x64.tar.gz /home/victor
+</code></pre><p>解压文件压缩包</p>
+<pre><code>tar -xvf /home/victor/node-v6.14.1-linux-x64.tar.gz
+</code></pre><p>如果找不到tar命令，说明没有装对应的包，通过如下命令安装：</p>
+<pre><code>sudo apt-get install unrar
+</code></pre><p>利用<code>ln</code>命令安装（<code>ln</code>命令为某一个文件或目录在另外一个位置建立一个同步的链接）</p>
+<pre><code>sudo ln -s /home/victor/node-v6.14.1-linux-x64/bin/node /usr/bin/node
+
+sudo ln -s /home/victor/node-v6.14.1-linux-x64/bin/npm /usr/bin/npm
+</code></pre><p>通过以下命令查看版本，是否安装成功：</p>
+<pre><code>node -v
+
+npm -v
+</code></pre><h3 id="3、防火墙操作"><a href="#3、防火墙操作" class="headerlink" title="3、防火墙操作"></a>3、防火墙操作</h3><p>1、关闭ubuntu的防火墙</p>
+<pre><code>ufw disable
+</code></pre><p>2、开启防火墙</p>
+<pre><code>ufw enable
+</code></pre><p>3、卸载了iptables</p>
+<pre><code>apt-get remove iptables
+</code></pre><p>4、关闭ubuntu中的防火墙的其余命令</p>
+<pre><code>iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -F
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Linux/">Linux</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Ubuntu/">Ubuntu</a><a href="/tags/Linux/">Linux</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/03/10/计算两个经纬度坐标与正北方向夹角/"><span>计算两个经纬度坐标与正北方向夹角</span></a></h3>
     
   
@@ -96,6 +194,13 @@
   <div class="article-footer">
     <div class="article-meta pull-left">
 
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Chart-DataVisualization/">Chart&DataVisualization</a>, <a href="/categories/Chart-DataVisualization/Leaflet/">Leaflet</a>
+    </span>
     
 
     
@@ -149,6 +254,13 @@
   <div class="article-footer">
     <div class="article-meta pull-left">
 
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Chart-DataVisualization/">Chart&DataVisualization</a>, <a href="/categories/Chart-DataVisualization/Leaflet/">Leaflet</a>
+    </span>
     
 
     
@@ -216,6 +328,13 @@
     <div class="article-meta pull-left">
 
     
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Docker/">Docker</a>
+    </span>
+    
 
     
     
@@ -268,6 +387,13 @@
   <div class="article-footer">
     <div class="article-meta pull-left">
 
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/AngularJS/">AngularJS</a>
+    </span>
     
 
     
@@ -323,6 +449,13 @@
   <div class="article-footer">
     <div class="article-meta pull-left">
 
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Chart-DataVisualization/">Chart&DataVisualization</a>, <a href="/categories/Chart-DataVisualization/Leaflet/">Leaflet</a>
+    </span>
     
 
     
@@ -388,6 +521,13 @@
     <div class="article-meta pull-left">
 
     
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Gulp/">Gulp</a>
+    </span>
+    
 
     
     
@@ -446,6 +586,13 @@
     <div class="article-meta pull-left">
 
     
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/AngularJS/">AngularJS</a>
+    </span>
+    
 
     
     
@@ -499,6 +646,13 @@
   <div class="article-footer">
     <div class="article-meta pull-left">
 
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/AngularJS/">AngularJS</a>
+    </span>
     
 
     
@@ -564,59 +718,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/tags/javascript/">javascript</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/11/03/Cesium基础操作/"><span>Cesium基础操作</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/11/03/Cesium基础操作/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-11-03T03:35:58.000Z">
-          2016-11-03
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p><style><br>table{<br>  border:0;margin:0;border-collapse:collapse;border-spacing:0;<br>  font-size: 13px;<br>}<br></style></p>
-<h3 id="1-初始化viewer对象"><a href="#1-初始化viewer对象" class="headerlink" title="1. 初始化viewer对象"></a>1. 初始化viewer对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//创建cesium Viewer</span><br><span class="line">viewer = new Cesium.Viewer(‘cesiumContainer’,&#123;</span><br><span class="line">  animation:false, //是否创建动画小器件，左下角仪表</span><br><span class="line">  baseLayerPicker:false, //是否显示图层选择器</span><br><span class="line">  fullscreenButton:false, //是否显示全屏按钮</span><br><span class="line">  geocoder:false, //是否显示geocoder小器件，右上角查询按钮</span><br><span class="line">  homeButton:false, //是否显示Home按钮</span><br><span class="line">  infoBox : false, //是否显示信息框</span><br><span class="line">  sceneModePicker:false, //是否显示3D/2D选择器</span><br><span class="line">  selectionIndicator : false , //是否显示选取指示器组件</span><br><span class="line">  timeline:false, //是否显示时间轴</span><br><span class="line">  navigationHelpButton:false, //是否显示右上角的帮助按钮</span><br><span class="line">  scene3DOnly : true, //如果设置为true，则所有几何图形以3D模式绘制以节约GPU资源</span><br><span class="line">  navigationInstructionsInitiallyVisible:false,</span><br><span class="line">  showRenderLoopErrors:false,</span><br><span class="line">  imageryProvider : new Cesium.OpenStreetMapImageryProvider(&#123; url : &apos;//a.tile.openstreetmap.org/&apos; &#125;) //加载自定义地图瓦片需要指定一个自定义图片服务器//URL 为瓦片数据服务器地址</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Cesium/">Cesium</a>
     </span>
     
 
