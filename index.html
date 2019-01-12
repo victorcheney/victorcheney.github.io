@@ -90,41 +90,6 @@
 <p>卸载：<code>sudo apt-get remove unrar</code></p>
 <p>unrar常用命令主要有:</p>
 <p><code>e</code> – 将文件解压到当前目录<br>  例:rar e test.rar<br>    注:用e解压的话，不仅原来的file1.txt和file2.txt被解压到当前目录，就连dir1里面的所有文件<br>    也被解压到当前目录下，不能保持压缩前的目录结构，如果想保持压缩前的目录结构，用x解压</p>
-<p><code>x</code> – 带路径解压文档中内容到当前目录<br>  例:rar x test.rar<br>    这样解压的话，dir1就会保持原来的目录结构</p>
-<p><code>a</code> – 添加文件到操作文档<br>例:rar a test.rar file1.txt 若test.rar文件不存在，则打包file1.txt文件成test.rar<br>    例:rar a test.rar file2.txt 若test.rar文件已经存在，则添加file2.txt文件到test.rar中<br>    (这样test.rar中就有两个文件了）<br>    注，如果操作文档中已有某文件的一份拷贝，则a命令更新该文件，对目录也可以进行操作<br>  例:rar a test.rar dir1</p>
-<p><code>c</code> – 对操作文档添加说明注释<br>  <code>rar c test.rar</code><br>    （会出现Reading comment from stdin字样，然后输入一行或多行注释，以ctrl+d结束）<br>    cf 添加文件注释，类似上面的c，不过这个是对压缩文档中每个文件进行注释<br>    cw 将文档注释写入文件<br>    例:<code>rar cw test.rar comment.txt</code></p>
-<p><code>d</code> – 从文档中删除文件<br>    例: <code>rar d test.rar file1.txt</code></p>
-<p><code>k</code> – 锁定文档<br>  例: <code>rar k test.rar</code> 锁定文档后，该文档就无法进行任何更新操作了</p>
-<p><code>r</code> – 修复文档<br>  例: <code>rar r test.rar</code><br>    当rar文件有问题时，可以尝试用该命令进行修复（鬼知道有多少用）</p>
-<p><code>s</code> – 转换文档成自解压文档<br>  例: <code>rar s test.rar</code><br>    会生成一个test.sfx的可执行文档，运行它的效果就相当于rar x test.rar，<br>    适合于向没有rar的用户传输文件</p>
-<p><code>t</code> – 检测文档<br>  例: <code>rar t test.rar</code><br>    检测test.rar的完整性，一般压缩完大型文件准备传输前最好用这个命令来确保文件的正确性</p>
-<h3 id="2、安装指定版本node"><a href="#2、安装指定版本node" class="headerlink" title="2、安装指定版本node"></a>2、安装指定版本node</h3><p>下载指定版本压缩包（<a href="https://nodejs.org/download/release/" target="_blank" rel="noopener">https://nodejs.org/download/release/</a>）</p>
-<p>通过命令下载到指定文件夹</p>
-<pre><code>wget https://nodejs.org/download/release/v6.14.1/node-v6.14.1-linux-x64.tar.gz /home/victor
-</code></pre><p>解压文件压缩包</p>
-<pre><code>tar -xvf /home/victor/node-v6.14.1-linux-x64.tar.gz
-</code></pre><p>如果找不到tar命令，说明没有装对应的包，通过如下命令安装：</p>
-<pre><code>sudo apt-get install unrar
-</code></pre><p>利用<code>ln</code>命令安装（<code>ln</code>命令为某一个文件或目录在另外一个位置建立一个同步的链接）</p>
-<pre><code>sudo ln -s /home/victor/node-v6.14.1-linux-x64/bin/node /usr/bin/node
-
-sudo ln -s /home/victor/node-v6.14.1-linux-x64/bin/npm /usr/bin/npm
-</code></pre><p>通过以下命令查看版本，是否安装成功：</p>
-<pre><code>node -v
-
-npm -v
-</code></pre><h3 id="3、防火墙操作"><a href="#3、防火墙操作" class="headerlink" title="3、防火墙操作"></a>3、防火墙操作</h3><p>1、关闭ubuntu的防火墙</p>
-<pre><code>ufw disable
-</code></pre><p>2、开启防火墙</p>
-<pre><code>ufw enable
-</code></pre><p>3、卸载了iptables</p>
-<pre><code>apt-get remove iptables
-</code></pre><p>4、关闭ubuntu中的防火墙的其余命令</p>
-<pre><code>iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
-iptables -F
-</code></pre>
       
     </div>
 
@@ -312,12 +277,6 @@ iptables -F
 <pre><code>docker rm $(docker ps -a -q)
 </code></pre><p>2.查看当前有些什么images</p>
 <pre><code>docker images
-</code></pre><p>3.删除images，通过image的id来指定删除谁</p>
-<pre><code>docker rmi &lt;image id&gt;
-</code></pre><p>想要删除untagged images，也就是那些id为<none>的image的话可以用</none></p>
-<pre><code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
-</code></pre><p>要删除全部image的话</p>
-<pre><code>docker rmi $(docker images -q)
 </code></pre>
       
     </div>
@@ -501,17 +460,6 @@ iptables -F
       
         <h2 id="同时输出一个压缩过和一个未压缩版本的文件"><a href="#同时输出一个压缩过和一个未压缩版本的文件" class="headerlink" title="同时输出一个压缩过和一个未压缩版本的文件"></a>同时输出一个压缩过和一个未压缩版本的文件</h2><p>同时输出压缩过的和未压缩版本的文件可以通过使用 gulp-rename 然后 pipe 到 dest 两次来实现 (一次是压缩之前的，一次是压缩后的)：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var rename = require(&apos;gulp-rename&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line"></span><br><span class="line">var DEST = &apos;build/&apos;;</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, function() &#123;</span><br><span class="line">  return gulp.src(&apos;foo.js&apos;)</span><br><span class="line">    // 这会输出一个未压缩过的版本</span><br><span class="line">    .pipe(gulp.dest(DEST))</span><br><span class="line">    // 这会输出一个压缩过的并且重命名未 foo.min.js 的文件</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(rename(&#123; extname: &apos;.min.js&apos; &#125;))</span><br><span class="line">    .pipe(gulp.dest(DEST));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.npmjs.com/package/gulp-load-plugins" target="_blank" rel="noopener">gulp-load-plugins</a>  从包依赖项加载gulp插件并将它们附加到您选择的对象上。</p>
-<p><a href="https://www.npmjs.com/package/gulp-sequence" target="_blank" rel="noopener">gulp-sequence</a></p>
-<p>gulp-sequence 是一个异步转同步的包 可以让gulp 的异步任务 阻塞同步执行</p>
-<p>1.给每个任务加上 return 关键字。<br>2.调用方法时，将方法名作为参数放在 <strong>sequence</strong> 内使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line"></span><br><span class="line">var sequence = require(&apos;gulp-sequence&apos;); //异步转同步的包</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;copyFile1&apos;,function()&#123;</span><br><span class="line">    return gulp.src(&apos;file1.txt&apos;)</span><br><span class="line">        .pipe(gulp.dest(&apos;./dist/&apos;))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;copyFile2&apos;,function()&#123;</span><br><span class="line">    return gulp.src(&apos;file2.txt&apos;)</span><br><span class="line">    .pipe(gulp.dest(&apos;./dist/&apos;))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;,function()&#123;</span><br><span class="line">    return sequence(&apos;copyFile1&apos;,&apos;copyFile2&apos;,function()&#123;</span><br><span class="line">        console.log(&apos;任务完成&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="运行watch时，会出现顺序执行的错误：-Error-The-thunkFunction-already-filled"><a href="#运行watch时，会出现顺序执行的错误：-Error-The-thunkFunction-already-filled" class="headerlink" title="运行watch时，会出现顺序执行的错误： Error: The thunkFunction already filled"></a>运行watch时，会出现顺序执行的错误： Error: The thunkFunction already filled</h2><blockquote>
-<p>用了gulp-sequence插件导致的，解决办法参考：<a href="https://github.com/teambition/gulp-sequence/issues/2" target="_blank" rel="noopener">https://github.com/teambition/gulp-sequence/issues/2</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;index-js&apos;, gulpSequence([&apos;angular&apos;, &apos;vendor&apos;, &apos;mapbase&apos;, &apos;app&apos;, &apos;app-service&apos;]));</span><br><span class="line"></span><br><span class="line">修改为：</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;index-js&apos;, function(cb) &#123;</span><br><span class="line">    gulpSequence([&apos;angular&apos;, &apos;vendor&apos;, &apos;mapbase&apos;, &apos;app&apos;, &apos;app-service&apos;])(cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="Gulp中的增量编译"><a href="#Gulp中的增量编译" class="headerlink" title="Gulp中的增量编译"></a>Gulp中的增量编译</h2><p>   参考：<a href="https://blog.csdn.net/dong123dddd/article/details/51868574" target="_blank" rel="noopener">https://blog.csdn.net/dong123dddd/article/details/51868574</a></p>
-
       
     </div>
 

@@ -14,7 +14,10 @@
 sudo docker exec -it &amp;lt;containername&amp;gt; // sudo 为Linux系统管理员权限命令
 1.停止所有的container，这样才能够删除其中的images：
 docker stop $(docker ps -a -q)
-如果想要删除所有cont">
+如果想要删除所有container的话再加一个指令：
+docker rm $(docker ps -a -q)
+2.查看当前有些什么images
+docker images">
   
 
   
@@ -101,7 +104,8 @@ docker stop $(docker ps -a -q)
 <pre><code>docker rm $(docker ps -a -q)
 </code></pre><p>2.查看当前有些什么images</p>
 <pre><code>docker images
-</code></pre><p>3.删除images，通过image的id来指定删除谁</p>
+</code></pre><a id="more"></a>
+<p>3.删除images，通过image的id来指定删除谁</p>
 <pre><code>docker rmi &lt;image id&gt;
 </code></pre><p>想要删除untagged images，也就是那些id为<none>的image的话可以用</none></p>
 <pre><code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)

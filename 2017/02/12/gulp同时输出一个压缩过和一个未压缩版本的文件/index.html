@@ -11,7 +11,7 @@
 
   
   <meta name="description" content="同时输出一个压缩过和一个未压缩版本的文件同时输出压缩过的和未压缩版本的文件可以通过使用 gulp-rename 然后 pipe 到 dest 两次来实现 (一次是压缩之前的，一次是压缩后的)：
-123456789101112131415var gulp = require(&amp;apos;gulp&amp;ap">
+123456789101112131415var gulp = require(&amp;apos;gulp&amp;apos;);var rename = require(&amp;apos;gulp-rename&amp;apos;);var uglify = require(&amp;apos;gulp-uglify&amp;apos;);var DEST = &amp;apos;build/&amp;apos;;gulp.task(&amp;apos;default&amp;apos;, function() &amp;#123;  return gulp.src(&amp;apos;foo.js&amp;apos;)    // 这会输出一个未压缩过的版本    .pipe(gulp.dest(DEST))    // 这会输出一个压缩过的并且重命名未 foo.min.js 的文件    .pipe(uglify())    .pipe(rename(&amp;#123; extname: &amp;apos;.min.js&amp;apos; &amp;#125;))    .pipe(gulp.dest(DEST));&amp;#125;);">
   
 
   
@@ -92,6 +92,7 @@
       
         <h2 id="同时输出一个压缩过和一个未压缩版本的文件"><a href="#同时输出一个压缩过和一个未压缩版本的文件" class="headerlink" title="同时输出一个压缩过和一个未压缩版本的文件"></a>同时输出一个压缩过和一个未压缩版本的文件</h2><p>同时输出压缩过的和未压缩版本的文件可以通过使用 gulp-rename 然后 pipe 到 dest 两次来实现 (一次是压缩之前的，一次是压缩后的)：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var rename = require(&apos;gulp-rename&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line"></span><br><span class="line">var DEST = &apos;build/&apos;;</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, function() &#123;</span><br><span class="line">  return gulp.src(&apos;foo.js&apos;)</span><br><span class="line">    // 这会输出一个未压缩过的版本</span><br><span class="line">    .pipe(gulp.dest(DEST))</span><br><span class="line">    // 这会输出一个压缩过的并且重命名未 foo.min.js 的文件</span><br><span class="line">    .pipe(uglify())</span><br><span class="line">    .pipe(rename(&#123; extname: &apos;.min.js&apos; &#125;))</span><br><span class="line">    .pipe(gulp.dest(DEST));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p><a href="https://www.npmjs.com/package/gulp-load-plugins" target="_blank" rel="noopener">gulp-load-plugins</a>  从包依赖项加载gulp插件并将它们附加到您选择的对象上。</p>
 <p><a href="https://www.npmjs.com/package/gulp-sequence" target="_blank" rel="noopener">gulp-sequence</a></p>
 <p>gulp-sequence 是一个异步转同步的包 可以让gulp 的异步任务 阻塞同步执行</p>

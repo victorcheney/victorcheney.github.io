@@ -14,7 +14,7 @@
 安装：sudo apt-get install unrar
 卸载：sudo apt-get remove unrar
 unrar常用命令主要有:
-e – 将文件解压到当前目录  例:rar ">
+e – 将文件解压到当前目录  例:rar e test.rar    注:用e解压的话，不仅原来的file1.txt和file2.txt被解压到当前目录，就连dir1里面的所有文件    也被解压到当前目录下，不能保持压缩前的目录结构，如果想保持压缩前的目录结构，用x解压">
   
 
   
@@ -98,6 +98,7 @@ e – 将文件解压到当前目录  例:rar ">
 <p>卸载：<code>sudo apt-get remove unrar</code></p>
 <p>unrar常用命令主要有:</p>
 <p><code>e</code> – 将文件解压到当前目录<br>  例:rar e test.rar<br>    注:用e解压的话，不仅原来的file1.txt和file2.txt被解压到当前目录，就连dir1里面的所有文件<br>    也被解压到当前目录下，不能保持压缩前的目录结构，如果想保持压缩前的目录结构，用x解压</p>
+<a id="more"></a>
 <p><code>x</code> – 带路径解压文档中内容到当前目录<br>  例:rar x test.rar<br>    这样解压的话，dir1就会保持原来的目录结构</p>
 <p><code>a</code> – 添加文件到操作文档<br>例:rar a test.rar file1.txt 若test.rar文件不存在，则打包file1.txt文件成test.rar<br>    例:rar a test.rar file2.txt 若test.rar文件已经存在，则添加file2.txt文件到test.rar中<br>    (这样test.rar中就有两个文件了）<br>    注，如果操作文档中已有某文件的一份拷贝，则a命令更新该文件，对目录也可以进行操作<br>  例:rar a test.rar dir1</p>
 <p><code>c</code> – 对操作文档添加说明注释<br>  <code>rar c test.rar</code><br>    （会出现Reading comment from stdin字样，然后输入一行或多行注释，以ctrl+d结束）<br>    cf 添加文件注释，类似上面的c，不过这个是对压缩文档中每个文件进行注释<br>    cw 将文档注释写入文件<br>    例:<code>rar cw test.rar comment.txt</code></p>
