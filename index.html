@@ -156,7 +156,73 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/leaflet/">leaflet</a><a href="/tags/javascript/">javascript</a><a href="/tags/Haversine/">Haversine</a>
+        <a href="/tags/leaflet/">leaflet</a><a href="/tags/Haversine/">Haversine</a><a href="/tags/javascript/">javascript</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/01/12/docker命令/"><span>docker命令</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/01/12/docker命令/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-01-12T13:13:28.000Z">
+          2018-01-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>进入容器</p>
+<pre><code>sudo docker exec -it &lt;containername&gt; // sudo 为Linux系统管理员权限命令
+</code></pre><p>1.停止所有的container，这样才能够删除其中的images：</p>
+<pre><code>docker stop $(docker ps -a -q)
+</code></pre><p>如果想要删除所有container的话再加一个指令：</p>
+<pre><code>docker rm $(docker ps -a -q)
+</code></pre><p>2.查看当前有些什么images</p>
+<pre><code>docker images
+</code></pre><p>3.删除images，通过image的id来指定删除谁</p>
+<pre><code>docker rmi &lt;image id&gt;
+</code></pre><p>想要删除untagged images，也就是那些id为<none>的image的话可以用</none></p>
+<pre><code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
+</code></pre><p>要删除全部image的话</p>
+<pre><code>docker rmi $(docker images -q)
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Docker/">Docker</a>
     </span>
     
 
@@ -527,58 +593,6 @@
 
       
     </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/08/06/angularjs中ng-model的坑/"><span>angularjs中ng-model的坑</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/08/06/angularjs中ng-model的坑/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-08-06T05:33:31.000Z">
-          2016-08-06
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>[转]<br>angular中指令被用的最多的除了ng-repeat之外就非他莫属了吧，由于各种业务的需求，我们经常需要去写一些继承ngModel的指令，来满足各种奇葩需求，最多的莫过于表单的验证啦，另外你在封装一些jquery插件的时候，也是需要继承ngModel的，最典型的莫过于 datepicker、fileUpload等等。…<br>
-      
-    </p></div>
 
   </div>
 

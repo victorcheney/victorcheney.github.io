@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>docker命令 | VICTORCHENEY | INNERPEACE</title>
+
+  
+  <meta name="author" content="victor cheney">
+  
+
+  
+  <meta name="description" content="进入容器
+sudo docker exec -it &amp;lt;containername&amp;gt; // sudo 为Linux系统管理员权限命令
+1.停止所有的container，这样才能够删除其中的images：
+docker stop $(docker ps -a -q)
+如果想要删除所有cont">
+  
+
+  
+  
+  <meta name="keywords" content="Docker">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="docker命令">
+
+  <meta property="og:site_name" content="VICTORCHENEY">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="VICTORCHENEY" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">VICTORCHENEY</a>
+    </h1>
+    <p class="site-description">INNERPEACE</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>docker命令</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/01/12/docker命令/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-01-12T13:13:28.000Z">
+          2018-01-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>进入容器</p>
+<pre><code>sudo docker exec -it &lt;containername&gt; // sudo 为Linux系统管理员权限命令
+</code></pre><p>1.停止所有的container，这样才能够删除其中的images：</p>
+<pre><code>docker stop $(docker ps -a -q)
+</code></pre><p>如果想要删除所有container的话再加一个指令：</p>
+<pre><code>docker rm $(docker ps -a -q)
+</code></pre><p>2.查看当前有些什么images</p>
+<pre><code>docker images
+</code></pre><p>3.删除images，通过image的id来指定删除谁</p>
+<pre><code>docker rmi &lt;image id&gt;
+</code></pre><p>想要删除untagged images，也就是那些id为<none>的image的话可以用</none></p>
+<pre><code>docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;)
+</code></pre><p>要删除全部image的话</p>
+<pre><code>docker rmi $(docker images -q)
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Docker/">Docker</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 victor cheney
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
