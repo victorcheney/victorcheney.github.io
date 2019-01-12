@@ -6,7 +6,7 @@ categories:
   - Leaflet
 tags: 
   - Haversine 
-  - javascript 
+  - JavaScript 
   - leaflet
 ---
 
