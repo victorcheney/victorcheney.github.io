@@ -29,6 +29,8 @@ gulp.task('default', function() {
 });
 ```
 
+<!-- more -->
+
 [gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins)  从包依赖项加载gulp插件并将它们附加到您选择的对象上。
 
 [gulp-sequence](https://www.npmjs.com/package/gulp-sequence)
