@@ -1,6 +1,6 @@
 ---
 title: 'javascript:;与javascript::void(0)使用介绍'
-date: 2017-01-12 22:26:34
+date: 2019-01-12 22:26:34
 categories: 
   - JavaScript
 tags:
