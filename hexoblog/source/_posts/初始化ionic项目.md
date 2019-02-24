@@ -100,3 +100,11 @@ https://blog.csdn.net/qq_31482717/article/details/54565253
 2、项目提示错误：Current working directory is not a Cordova-based project.
 
 解决方案： ionic cordova platform add android [https://www.jianshu.com/p/35ee988cc1d4](https://www.jianshu.com/p/35ee988cc1d4)
+
+3、安装`node-sass`模块时，报错  
+
+```code
+    MSBUILD : error MSB3428: 未能加载 Visual C++ 组件“VCBuild.exe”。
+```
+
+解决方案: [https://blog.csdn.net/weixin_39842528/article/details/81144747](https://blog.csdn.net/weixin_39842528/article/details/81144747)
