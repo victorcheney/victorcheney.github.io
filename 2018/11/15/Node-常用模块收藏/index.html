@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Node--常用模块收藏 | VICTORCHENEY | INNERPEACE</title>
+
+  
+  <meta name="author" content="victor cheney">
+  
+
+  
+  <meta name="description" content="Node 常用模块收藏inquirer https://www.npmjs.com/package/inquirer常用交互式命令行用户界面的集合:
+
+提供错误反馈问问题解析输入验证答案管理分层提示">
+  
+
+  
+  
+  <meta name="keywords" content="Node">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Node--常用模块收藏">
+
+  <meta property="og:site_name" content="VICTORCHENEY">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="VICTORCHENEY" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">VICTORCHENEY</a>
+    </h1>
+    <p class="site-description">INNERPEACE</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Node--常用模块收藏</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/11/15/Node-常用模块收藏/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-11-15T08:32:55.000Z">
+          2018-11-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="Node-常用模块收藏"><a href="#Node-常用模块收藏" class="headerlink" title="Node 常用模块收藏"></a>Node 常用模块收藏</h3><h3 id="inquirer-https-www-npmjs-com-package-inquirer"><a href="#inquirer-https-www-npmjs-com-package-inquirer" class="headerlink" title="inquirer https://www.npmjs.com/package/inquirer"></a>inquirer <a href="https://www.npmjs.com/package/inquirer" target="_blank" rel="noopener">https://www.npmjs.com/package/inquirer</a></h3><p>常用交互式命令行用户界面的集合:</p>
+<blockquote>
+<p>提供错误反馈<br>问问题<br>解析输入<br>验证答案<br>管理分层提示  </p>
+</blockquote>
+<a id="more"></a>
+<h3 id="Commander-js"><a href="#Commander-js" class="headerlink" title="Commander.js"></a>Commander.js</h3><p><a href="https://github.com/tj/commander.js" target="_blank" rel="noopener">https://github.com/tj/commander.js</a> 命令行完美解决方案</p>
+<h3 id="roa"><a href="#roa" class="headerlink" title="roa"></a><a href="https://www.npmjs.com/package/ora" target="_blank" rel="noopener">roa</a></h3><p>控制台loading <code>npm install ora</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const ora = require(&apos;ora&apos;);</span><br><span class="line"></span><br><span class="line">const spinner = ora(&apos;Loading unicorns&apos;).start();</span><br><span class="line"></span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    spinner.color = &apos;yellow&apos;;</span><br><span class="line">    spinner.text = &apos;Loading rainbows&apos;;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
+<h3 id="progress"><a href="#progress" class="headerlink" title="progress"></a><a href="https://www.npmjs.com/package/progress" target="_blank" rel="noopener">progress</a></h3><p>控制台进度条 <code>npm install progress</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var ProgressBar = require(&apos;progress&apos;);</span><br><span class="line"></span><br><span class="line">var bar = new ProgressBar(&apos;:bar&apos;, &#123; total: 10 &#125;);</span><br><span class="line">var timer = setInterval(function () &#123;</span><br><span class="line">bar.tick();</span><br><span class="line">if (bar.complete) &#123;</span><br><span class="line">    console.log(&apos;\ncomplete\n&apos;);</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">&#125;</span><br><span class="line">&#125;, 100);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Node/">Node</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Node/">Node</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 victor cheney
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
