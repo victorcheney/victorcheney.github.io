@@ -1,7 +1,7 @@
 ---
 title: JavaScript--GeolocationAPI定位
 date: 2017-04-12 22:48:03
-categraies:
+categraies: 
   - JavaScript
 tags:
   - JavaScript
