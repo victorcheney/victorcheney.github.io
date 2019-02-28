@@ -65,6 +65,68 @@
 
   
     
+    <h3 class="article-title"><a href="/2019/02/26/ionic发布release版本文档/"><span>ionic发布release版本文档</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/02/26/ionic发布release版本文档/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-02-26T08:04:52.000Z">
+          2019-02-26
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="ionic-发布release版本"><a href="#ionic-发布release版本" class="headerlink" title="ionic 发布release版本"></a>ionic 发布release版本</h1><h2 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h2><h3 id="运行以下cli命令："><a href="#运行以下cli命令：" class="headerlink" title="运行以下cli命令："></a>运行以下cli命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android --prod --release</span><br></pre></td></tr></table></figure>
+<p>这将产生基于设置的发布版本config.xml的platforms/android/build/outputs/apk应用程序的目录。Ionic应用程序将在此文件中预设默认值，但可以将其更改为自定义构建</p>
+<h3 id="APK签名"><a href="#APK签名" class="headerlink" title="APK签名"></a>APK签名</h3><p>首先，必须签署未签名的APK。如果已生成签名密钥，请跳过这些步骤并使用该步骤。使用Android SDK附带的keytool命令生成私钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -keystore myapp-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Ionic/">Ionic</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Ionic/">Ionic</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2019/02/22/初始化ionic项目/"><span>初始化ionic项目</span></a></h3>
     
   
@@ -435,6 +497,69 @@
 
   
     
+    <h3 class="article-title"><a href="/2018/02/28/修改hosts文件大法/"><span>修改hosts文件大法</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/02/28/修改hosts文件大法/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-02-28T14:04:10.000Z">
+          2018-02-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="改HOSTS大法"><a href="#改HOSTS大法" class="headerlink" title="改HOSTS大法"></a>改HOSTS大法</h1><p>Windows下在C:/Windows/system32/drivers/etc/hosts<br>Ubuntu等linux系一般在/etc/hosts</p>
+<h2 id="在hosts中添加如下内容："><a href="#在hosts中添加如下内容：" class="headerlink" title="在hosts中添加如下内容："></a>在hosts中添加如下内容：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> # Github</span><br><span class="line">151.101.44.249 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">103.245.222.133 assets-cdn.github.com</span><br><span class="line">23.235.47.133 assets-cdn.github.com</span><br><span class="line">203.208.39.104 assets-cdn.github.com</span><br><span class="line">204.232.175.78 documentcloud.github.com</span><br><span class="line">204.232.175.94 gist.github.com</span><br><span class="line">107.21.116.220 help.github.com</span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">199.27.76.130 raw.github.com</span><br><span class="line">107.22.3.110 status.github.com</span><br><span class="line">204.232.175.78 training.github.com</span><br><span class="line">207.97.227.243 www.github.com</span><br><span class="line">185.31.16.184 github.global.ssl.fastly.net</span><br><span class="line">185.31.18.133 avatars0.githubusercontent.com</span><br><span class="line">185.31.19.133 avatars1.githubusercontent.com</span><br></pre></td></tr></table></figure>
+<h2 id="改完之后立刻刷新"><a href="#改完之后立刻刷新" class="headerlink" title="改完之后立刻刷新"></a>改完之后立刻刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows：ipconfig /flushdns</span><br><span class="line">Ubuntu：sudo systemctl restart nscd</span><br></pre></td></tr></table></figure>
+<h2 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h2><p>修改hosts文件神器 <code>SwitchHosts!</code> <a href="https://github.com/oldj/SwitchHosts/releases" target="_blank" rel="noopener">https://github.com/oldj/SwitchHosts/releases</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Github/">Github</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Github/">Github</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2018/01/12/docker命令/"><span>docker命令</span></a></h3>
     
   
@@ -553,128 +678,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/tags/Node/">Node</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/10/14/AngularJS验证用户名的自定义指令/"><span>AngularJS验证用户名的自定义指令</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/10/14/AngularJS验证用户名的自定义指令/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-10-14T06:01:04.000Z">
-          2017-10-14
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="Angularjs表单验证中，验证用户名是否唯一"><a href="#Angularjs表单验证中，验证用户名是否唯一" class="headerlink" title="Angularjs表单验证中，验证用户名是否唯一"></a>Angularjs表单验证中，验证用户名是否唯一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;demo.form&apos;)</span><br><span class="line">.directive(&apos;ensureUnique&apos;, [&apos;$http&apos;, ($http) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    require: &apos;ngModel&apos;,</span><br><span class="line">    link: (scope, ele, attrs, c) =&gt; &#123;</span><br><span class="line">      scope.$watch(attrs.ngModel, () =&gt; &#123;</span><br><span class="line">        $https(&#123;</span><br><span class="line">          method: &apos;POST&apos;,</span><br><span class="line">          url: &apos;/api/check/&apos; + attrs.ensureUnique,</span><br><span class="line">          data: &#123;&apos;field&apos;: attrs.ensureUnique&#125;</span><br><span class="line">        &#125;).success((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, data.isUnique)</span><br><span class="line">        &#125;).error((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, false);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
-<p>…<br>
-      
-    </p></div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/AngularJS/">AngularJS</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/08/04/Leaflet插件收藏/"><span>Leaflet插件收藏</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/08/04/Leaflet插件收藏/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-08-04T06:06:50.000Z">
-          2017-08-04
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h3 id="收集了leaflet常用的一些插件的连接地址"><a href="#收集了leaflet常用的一些插件的连接地址" class="headerlink" title="收集了leaflet常用的一些插件的连接地址"></a>收集了leaflet常用的一些插件的连接地址</h3><p>Docs地址：<a href="https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html" target="_blank" rel="noopener">https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html</a></p>
-<p>leaflet：<a href="http://leafletjs.com/examples/quick-start/" target="_blank" rel="noopener">http://leafletjs.com/examples/quick-start/</a></p>
-<p>mapbox：<a href="https://www.mapbox.com/mapbox.js/api/v3.0.1/" target="_blank" rel="noopener">https://www.mapbox.com/mapbox.js/api/v3.0.1/</a></p>
-<p>FeatureGroup：<a href="https://www.mapbox.com/mapbox.js/api/v3.0.1/l-featuregroup/#featuregroup" target="_blank" rel="noopener">https://www.mapbox.com/mapbox.js/api/v3.0.1/l-featuregroup/#featuregroup</a></p>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Chart-DataVisualization/">Chart&DataVisualization</a>, <a href="/categories/Chart-DataVisualization/Leaflet/">Leaflet</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/leaflet/">leaflet</a><a href="/tags/map/">map</a>
     </span>
     
 

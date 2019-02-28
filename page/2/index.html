@@ -65,6 +65,128 @@
 
   
     
+    <h3 class="article-title"><a href="/2017/10/14/AngularJS验证用户名的自定义指令/"><span>AngularJS验证用户名的自定义指令</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/10/14/AngularJS验证用户名的自定义指令/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-10-14T06:01:04.000Z">
+          2017-10-14
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Angularjs表单验证中，验证用户名是否唯一"><a href="#Angularjs表单验证中，验证用户名是否唯一" class="headerlink" title="Angularjs表单验证中，验证用户名是否唯一"></a>Angularjs表单验证中，验证用户名是否唯一</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;demo.form&apos;)</span><br><span class="line">.directive(&apos;ensureUnique&apos;, [&apos;$http&apos;, ($http) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    require: &apos;ngModel&apos;,</span><br><span class="line">    link: (scope, ele, attrs, c) =&gt; &#123;</span><br><span class="line">      scope.$watch(attrs.ngModel, () =&gt; &#123;</span><br><span class="line">        $https(&#123;</span><br><span class="line">          method: &apos;POST&apos;,</span><br><span class="line">          url: &apos;/api/check/&apos; + attrs.ensureUnique,</span><br><span class="line">          data: &#123;&apos;field&apos;: attrs.ensureUnique&#125;</span><br><span class="line">        &#125;).success((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, data.isUnique)</span><br><span class="line">        &#125;).error((data, status, headers, cfg) =&gt; &#123;</span><br><span class="line">          c.$setValidity(&apos;unique&apos;, false);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>…<br>
+      
+    </p></div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/AngularJS/">AngularJS</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/angularjs/">angularjs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/04/Leaflet插件收藏/"><span>Leaflet插件收藏</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/04/Leaflet插件收藏/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-04T06:06:50.000Z">
+          2017-08-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="收集了leaflet常用的一些插件的连接地址"><a href="#收集了leaflet常用的一些插件的连接地址" class="headerlink" title="收集了leaflet常用的一些插件的连接地址"></a>收集了leaflet常用的一些插件的连接地址</h3><p>Docs地址：<a href="https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html" target="_blank" rel="noopener">https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html</a></p>
+<p>leaflet：<a href="http://leafletjs.com/examples/quick-start/" target="_blank" rel="noopener">http://leafletjs.com/examples/quick-start/</a></p>
+<p>mapbox：<a href="https://www.mapbox.com/mapbox.js/api/v3.0.1/" target="_blank" rel="noopener">https://www.mapbox.com/mapbox.js/api/v3.0.1/</a></p>
+<p>FeatureGroup：<a href="https://www.mapbox.com/mapbox.js/api/v3.0.1/l-featuregroup/#featuregroup" target="_blank" rel="noopener">https://www.mapbox.com/mapbox.js/api/v3.0.1/l-featuregroup/#featuregroup</a></p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Chart-DataVisualization/">Chart&DataVisualization</a>, <a href="/categories/Chart-DataVisualization/Leaflet/">Leaflet</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/leaflet/">leaflet</a><a href="/tags/map/">map</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/04/12/JavaScript-GeolocationAPI定位/"><span>JavaScript--GeolocationAPI定位</span></a></h3>
     
   
@@ -533,126 +655,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/tags/Cesium/">Cesium</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/10/20/AngularJS源码之ng-style/"><span>AngularJS源码之ng-style</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/10/20/AngularJS源码之ng-style/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-10-20T03:58:42.000Z">
-          2016-10-20
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>ng-style源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) &#123;</span><br><span class="line">  if (oldStyles &amp;&amp; (newStyles !== oldStyles)) &#123;</span><br><span class="line">    forEach(oldStyles, function(val, style) &#123;</span><br><span class="line">      element.css(style, &apos;&apos;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  if (newStyles)</span><br><span class="line">    element.css(newStyles);</span><br><span class="line">&#125;, true);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/AngularJS/">AngularJS</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/08/06/angularjs中ng-model的坑/"><span>angularjs中ng-model的坑</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/08/06/angularjs中ng-model的坑/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-08-06T05:33:31.000Z">
-          2016-08-06
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>[转]<br>angular中指令被用的最多的除了ng-repeat之外就非他莫属了吧，由于各种业务的需求，我们经常需要去写一些继承ngModel的指令，来满足各种奇葩需求，最多的莫过于表单的验证啦，另外你在封装一些jquery插件的时候，也是需要继承ngModel的，最典型的莫过于 datepicker、fileUpload等等。…<br>
-      
-    </p></div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/AngularJS/">AngularJS</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
     </span>
     
 
