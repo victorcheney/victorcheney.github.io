@@ -13,7 +13,8 @@ tags:
 
 ## 文档地址
 
-ionic V3: [https://ionicframework.com/docs/v3/](https://ionicframework.com/docs/v3/)  
+ionic V3: [https://ionicframework.com/docs/v3/](https://ionicframework.com/docs/v3/)
+
 ionic V4: [https://ionicframework.com/docs/](https://ionicframework.com/docs/)
 
 ## 安装node、npm
@@ -26,7 +27,7 @@ node -v
 ## 全局安装ionic和cordova
 
 ```code
-npm install -g ionic  // 最新的4.10.3
+npm install -g ionic  // 最新的4.10.3 项目中使用的是3.20.0
 npm install -g cordova // 最新8.1.2
 ```
 
@@ -34,19 +35,13 @@ npm install -g cordova // 最新8.1.2
 
 ## 初始化项目
 
-```code
     ionic start myapp tabs
-```
-
-<!-- more -->
 
 ## 初始化platform命令
 
-```code
     ionic cordova platform add android // Android
 
     ionic cordova platform add ios // 初始化ios平台
-```
 
 ## 命令相关
 
