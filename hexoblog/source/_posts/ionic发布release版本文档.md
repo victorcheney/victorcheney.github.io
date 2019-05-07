@@ -9,6 +9,8 @@ tags:
 
 # ionic 发布release版本
 
+[https://ionicframework.com/docs/cli/commands/cordova-build](https://ionicframework.com/docs/cli/commands/cordova-build)
+
 ## Android版本
 
 ### 运行以下cli命令：
@@ -26,8 +28,6 @@ ionic cordova build android --prod --release
 keytool -genkey -v -keystore myapp-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 ```
 
-<!-- more -->
-
 ![keystore.png](keystore.png)
 
 my-release-key.keystore将在当前目录中创建一个被调用的文件;
@@ -38,8 +38,6 @@ my-release-key.keystore将在当前目录中创建一个被调用的文件;
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore myapp-release-key.keystore app-release-unsigned.apk alias_name
 ```
 
-![sign1.png](sign1.png)
+![sign.png](sign.png)
 
 ## iOS版本
-
-暂无
