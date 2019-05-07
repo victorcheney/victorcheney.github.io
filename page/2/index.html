@@ -65,6 +65,202 @@
 
   
     
+    <h3 class="article-title"><a href="/2018/02/28/修改hosts文件大法/"><span>修改hosts文件大法</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/02/28/修改hosts文件大法/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-02-28T14:04:10.000Z">
+          2018-02-28
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="改HOSTS大法"><a href="#改HOSTS大法" class="headerlink" title="改HOSTS大法"></a>改HOSTS大法</h1><p>Windows下在C:/Windows/system32/drivers/etc/hosts<br>Ubuntu等linux系一般在/etc/hosts</p>
+<h2 id="在hosts中添加如下内容："><a href="#在hosts中添加如下内容：" class="headerlink" title="在hosts中添加如下内容："></a>在hosts中添加如下内容：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> # Github</span><br><span class="line">151.101.44.249 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">103.245.222.133 assets-cdn.github.com</span><br><span class="line">23.235.47.133 assets-cdn.github.com</span><br><span class="line">203.208.39.104 assets-cdn.github.com</span><br><span class="line">204.232.175.78 documentcloud.github.com</span><br><span class="line">204.232.175.94 gist.github.com</span><br><span class="line">107.21.116.220 help.github.com</span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">199.27.76.130 raw.github.com</span><br><span class="line">107.22.3.110 status.github.com</span><br><span class="line">204.232.175.78 training.github.com</span><br><span class="line">207.97.227.243 www.github.com</span><br><span class="line">185.31.16.184 github.global.ssl.fastly.net</span><br><span class="line">185.31.18.133 avatars0.githubusercontent.com</span><br><span class="line">185.31.19.133 avatars1.githubusercontent.com</span><br></pre></td></tr></table></figure>
+<h2 id="改完之后立刻刷新"><a href="#改完之后立刻刷新" class="headerlink" title="改完之后立刻刷新"></a>改完之后立刻刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows：ipconfig /flushdns</span><br><span class="line">Ubuntu：sudo systemctl restart nscd</span><br></pre></td></tr></table></figure>
+<h2 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h2><p>修改hosts文件神器 <code>SwitchHosts!</code> <a href="https://github.com/oldj/SwitchHosts/releases" target="_blank" rel="noopener">https://github.com/oldj/SwitchHosts/releases</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Github/">Github</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Github/">Github</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/01/12/docker命令/"><span>docker命令</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/01/12/docker命令/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-01-12T13:13:28.000Z">
+          2018-01-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>进入容器</p>
+<pre><code>sudo docker exec -it &lt;containername&gt; // sudo 为Linux系统管理员权限命令
+</code></pre><p>1.停止所有的container，这样才能够删除其中的images：</p>
+<pre><code>docker stop $(docker ps -a -q)
+</code></pre><p>如果想要删除所有container的话再加一个指令：</p>
+<pre><code>docker rm $(docker ps -a -q)
+</code></pre><p>2.查看当前有些什么images</p>
+<pre><code>docker images
+</code></pre>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Docker/">Docker</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Docker/">Docker</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/12/20/Node-文件路径/"><span>Node--文件路径</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/12/20/Node-文件路径/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-12-20T10:26:30.000Z">
+          2017-12-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="nodejs中的几种文件路径比较"><a href="#nodejs中的几种文件路径比较" class="headerlink" title="nodejs中的几种文件路径比较"></a>nodejs中的几种文件路径比较</h3><p>在调试一个node代码的时候，总是出问题，最后找到原因是由于路径的问题，node中的路径有全局变量<code>__dirname</code>、全局变量<code>__filename</code>、<code>./</code>、<code>../</code>以及<code>process.cwd()</code><br>首先看个例子：</p>
+<p> 在桌面的nodedemo文件夹新建了simple.js文件，对以上几种路径进行输出<br><img src="nodepath.png" alt=""></p>
+<p>1、__dirname: 表示当前模块所在的文件夹的绝对路径。</p>
+<p>2、__filename: 表示当前模块的绝对路径</p>
+<p>3、process.cwd()表示的是node进程当前工作的绝对路径</p>
+<p>4、./在打印的时候要借助path.resolve()进行转换，与process.cwd()效果相同</p>
+<p>5、../表示当前工作目录的上级目录</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Node/">Node</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Node/">Node</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/10/14/AngularJS验证用户名的自定义指令/"><span>AngularJS验证用户名的自定义指令</span></a></h3>
     
   
@@ -478,183 +674,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/01/06/AngularJS-用-Interceptors-来统一处理-HTTP-请求和响应/"><span>AngularJS 用 Interceptors 来统一处理 HTTP 请求和响应</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/01/06/AngularJS-用-Interceptors-来统一处理-HTTP-请求和响应/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-01-06T04:29:27.000Z">
-          2017-01-06
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><p>Interceptors 有两个处理时机，分别是：</p>
-<p>其它程序代码执行 HTTP 请求之后，在实际从浏览器发出请求之前，即处理请求<br>得到请求的响应之后，在交给其它程序代码处理之前，即处理请求的响应<br>所以，不难理解它可以用于如下几个方面：</p>
-<p>全局处理错误<br>统一进行身份验证一类的处理<br>对所有发出去的请求进行预处理<br>对所有收到的响应进行预处理<br>做一些增强用户体验的操作，例如显示一个进度条…</p>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/AngularJS/">AngularJS</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/angularjs/">angularjs</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/01/01/浏览器navigator对象/"><span>浏览器navigator对象</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/01/01/浏览器navigator对象/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-12-31T16:00:00.000Z">
-          2017-01-01
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h1><p>Navigator 对象包含有关浏览器的信息。</p>
-<p>注释：没有应用于 navigator 对象的公开标准，不过所有浏览器都支持该对象。</p>
-<h3 id="Navigator-对象集合"><a href="#Navigator-对象集合" class="headerlink" title="Navigator 对象集合"></a>Navigator 对象集合</h3><blockquote>
-<p>集合：plugins[]</p>
-<p>描述：返回对文档中所有嵌入式对象的引用。<br>该集合是一个 Plugin 对象的数组，其中的元素代表浏览器已经安装的插件。Plug-in 对象提供的是有关插件的信息，其中包括它所支持的 MIME 类型的列表。<br>虽然 plugins[] 数组是由 IE 4 定义的，但是在 IE 4 中它却总是空的，因为 IE 4 不支持插件和 Plugin 对象。<br>
-      
-    </p></blockquote></div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/JavaScript/">JavaScript</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/11/03/Cesium基础操作/"><span>Cesium基础操作</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/11/03/Cesium基础操作/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-11-03T03:35:58.000Z">
-          2016-11-03
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p><style><br>table{<br>  border:0;margin:0;border-collapse:collapse;border-spacing:0;<br>  font-size: 13px;<br>}<br></style></p>
-<h3 id="1-初始化viewer对象"><a href="#1-初始化viewer对象" class="headerlink" title="1. 初始化viewer对象"></a>1. 初始化viewer对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//创建cesium Viewer</span><br><span class="line">viewer = new Cesium.Viewer(‘cesiumContainer’,&#123;</span><br><span class="line">  animation:false, //是否创建动画小器件，左下角仪表</span><br><span class="line">  baseLayerPicker:false, //是否显示图层选择器</span><br><span class="line">  fullscreenButton:false, //是否显示全屏按钮</span><br><span class="line">  geocoder:false, //是否显示geocoder小器件，右上角查询按钮</span><br><span class="line">  homeButton:false, //是否显示Home按钮</span><br><span class="line">  infoBox : false, //是否显示信息框</span><br><span class="line">  sceneModePicker:false, //是否显示3D/2D选择器</span><br><span class="line">  selectionIndicator : false , //是否显示选取指示器组件</span><br><span class="line">  timeline:false, //是否显示时间轴</span><br><span class="line">  navigationHelpButton:false, //是否显示右上角的帮助按钮</span><br><span class="line">  scene3DOnly : true, //如果设置为true，则所有几何图形以3D模式绘制以节约GPU资源</span><br><span class="line">  navigationInstructionsInitiallyVisible:false,</span><br><span class="line">  showRenderLoopErrors:false,</span><br><span class="line">  imageryProvider : new Cesium.OpenStreetMapImageryProvider(&#123; url : &apos;//a.tile.openstreetmap.org/&apos; &#125;) //加载自定义地图瓦片需要指定一个自定义图片服务器//URL 为瓦片数据服务器地址</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Chart-DataVisualization/">Chart&DataVisualization</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Cesium/">Cesium</a>
     </span>
     
 

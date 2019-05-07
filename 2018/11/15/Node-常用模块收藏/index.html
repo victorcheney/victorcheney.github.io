@@ -102,6 +102,46 @@
 <h3 id="progress"><a href="#progress" class="headerlink" title="progress"></a><a href="https://www.npmjs.com/package/progress" target="_blank" rel="noopener">progress</a></h3><p>控制台进度条 <code>npm install progress</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var ProgressBar = require(&apos;progress&apos;);</span><br><span class="line"></span><br><span class="line">var bar = new ProgressBar(&apos;:bar&apos;, &#123; total: 10 &#125;);</span><br><span class="line">var timer = setInterval(function () &#123;</span><br><span class="line">bar.tick();</span><br><span class="line">if (bar.complete) &#123;</span><br><span class="line">    console.log(&apos;\ncomplete\n&apos;);</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">&#125;</span><br><span class="line">&#125;, 100);</span><br></pre></td></tr></table></figure>
 <h3 id="qs"><a href="#qs" class="headerlink" title="qs"></a><a href="https://www.npmjs.com/package/qs" target="_blank" rel="noopener">qs</a></h3><p>查询字符串解析和字符串化库，增加了一些安全性。</p>
+<h3 id="lowdb"><a href="#lowdb" class="headerlink" title="lowdb"></a><a href="https://github.com/typicode/lowdb" target="_blank" rel="noopener">lowdb</a></h3><p> lowdb是一个由Lodash支持的小型本地JSON数据库（支持Node，Electron和浏览器）</p>
+<p> 安装</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install lowdb</span><br></pre></td></tr></table></figure>
+<p> 用法</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const low = require(&apos;lowdb&apos;)</span><br><span class="line">const FileSync = require(&apos;lowdb/adapters/FileSync&apos;)</span><br><span class="line"></span><br><span class="line">const adapter = new FileSync(&apos;db.json&apos;)</span><br><span class="line">const db = low(adapter)</span><br><span class="line"></span><br><span class="line">// Set some defaults (required if your JSON file is empty)</span><br><span class="line">db.defaults(&#123; posts: [], user: &#123;&#125;, count: 0 &#125;)</span><br><span class="line">  .write()</span><br><span class="line"></span><br><span class="line">// Add a post</span><br><span class="line">db.get(&apos;posts&apos;)</span><br><span class="line">  .push(&#123; id: 1, title: &apos;lowdb is awesome&apos;&#125;)</span><br><span class="line">  .write()</span><br><span class="line"></span><br><span class="line">// Set a user using Lodash shorthand syntax</span><br><span class="line">db.set(&apos;user.name&apos;, &apos;typicode&apos;)</span><br><span class="line">  .write()</span><br><span class="line">  </span><br><span class="line">// Increment count</span><br><span class="line">db.update(&apos;count&apos;, n =&gt; n + 1)</span><br><span class="line">  .write()</span><br></pre></td></tr></table></figure>
+<h3 id="simple-git"><a href="#simple-git" class="headerlink" title="simple-git"></a><a href="https://www.npmjs.com/package/simple-git" target="_blank" rel="noopener">simple-git</a></h3><p>用于在任何node.js应用程序中运行git命令的轻量级接口</p>
+<p> 安装</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install simple-git</span><br></pre></td></tr></table></figure>
+<h3 id="shortid"><a href="#shortid" class="headerlink" title="shortid"></a><a href="https://github.com/dylang/shortid" target="_blank" rel="noopener">shortid</a></h3><blockquote>
+<p>令人惊讶的简短非连续url友好的唯一id生成器。</p>
+</blockquote>
+<p>ShortId创建了非常短的非连续url友好的独特ID。适用于网址缩短程序，MongoDB和Redis ID以及用户可能看到的任何其他ID。</p>
+<ul>
+<li>默认情况下，7-14 URL友好字符：A-Z，a-z，0-9，_-</li>
+<li>支持cluster（自动），自定义种子，自定义字母。</li>
+<li>可以生成任意数量的ID而无需重复，甚至每天数百万。</li>
+<li>非常适合游戏，特别是如果你担心作弊，所以你不想要一个容易猜到的id。</li>
+<li>应用程序可以重新启动任意次，而无需重复ID。</li>
+<li>Mongo ID / Mongoose ID的热门替代品。</li>
+<li>适用于Node，io.js和Web浏览器。</li>
+<li>包括摩卡测试。</li>
+</ul>
+<p>ShortId不会生成加密安全ID，因此不要依赖它来制作无法猜测的ID。</p>
+<h3 id="material-design-icons-iconfont"><a href="#material-design-icons-iconfont" class="headerlink" title="material-design-icons-iconfont"></a><a href="https://github.com/jossef/material-design-icons-iconfont" target="_blank" rel="noopener">material-design-icons-iconfont</a></h3><p><a href="https://jossef.github.io/material-design-icons-iconfont" target="_blank" rel="noopener">Demo page</a></p>
+<p>安装</p>
+<p>使用bower</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install material-design-icons-iconfont --save</span><br></pre></td></tr></table></figure>
+<p>使用npm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install material-design-icons-iconfont --save</span><br></pre></td></tr></table></figure>
+<h3 id="gray-matter"><a href="#gray-matter" class="headerlink" title="gray-matter"></a><a href="https://www.npmjs.com/package/gray-matter" target="_blank" rel="noopener">gray-matter</a></h3><p>从字符串或文件中解析前端内容。快速，可靠且易于使用。默认情况下解析YAML前端问题，但也支持YAML，JSON，TOML或Coffee Front-Matter，并提供设置自定义分隔符的选项。</p>
+<p>安装</p>
+<p>使用npm安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save grey-matter</span><br></pre></td></tr></table></figure>
+<h3 id="markdown-it"><a href="#markdown-it" class="headerlink" title="markdown-it"></a><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener">markdown-it</a></h3><p>markdown 解析器</p>
+<p>安装</p>
+<p>node.js &amp; bower:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install markdown-it --save</span><br><span class="line">bower install markdown-it --save</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/markdown-it/markdown-it#usage-examples" target="_blank" rel="noopener">examples</a></p>
+<h3 id="markdown-it-katex"><a href="#markdown-it-katex" class="headerlink" title="markdown-it-katex"></a><a href="http://npm.taobao.org/package/markdown-it-katex" target="_blank" rel="noopener">markdown-it-katex</a></h3><p>markdown 中添加数学公式</p>
+<h3 id="markdown-it-toc-and-anchor"><a href="#markdown-it-toc-and-anchor" class="headerlink" title="markdown-it-toc-and-anchor"></a><a href="http://npm.taobao.org/package/markdown-it-toc-and-anchor" target="_blank" rel="noopener">markdown-it-toc-and-anchor</a></h3><p>markdown-it插件，用于在标题中添加toc和锚点链接</p>
 
       
     </div>

@@ -10,10 +10,9 @@
   
 
   
-  <meta name="description" content="ionic 发布release版本Android版本运行以下cli命令：1ionic cordova build android --prod --release
-这将产生基于设置的发布版本config.xml的platforms/android/build/outputs/apk应用程序的目录。Ionic应用程序将在此文件中预设默认值，但可以将其更改为自定义构建
-APK签名首先，必须签署未签名的APK。如果已生成签名密钥，请跳过这些步骤并使用该步骤。使用Android SDK附带的keytool命令生成私钥：
-1keytool -genkey -v -keystore myapp-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000">
+  <meta name="description" content="ionic 发布release版本https://ionicframework.com/docs/cli/commands/cordova-build
+Android版本运行以下cli命令：1ionic cordova build android --prod --release
+这将产生基于设置的">
   
 
   
@@ -92,18 +91,17 @@ APK签名首先，必须签署未签名的APK。如果已生成签名密钥，�
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="ionic-发布release版本"><a href="#ionic-发布release版本" class="headerlink" title="ionic 发布release版本"></a>ionic 发布release版本</h1><h2 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h2><h3 id="运行以下cli命令："><a href="#运行以下cli命令：" class="headerlink" title="运行以下cli命令："></a>运行以下cli命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android --prod --release</span><br></pre></td></tr></table></figure>
+        <h1 id="ionic-发布release版本"><a href="#ionic-发布release版本" class="headerlink" title="ionic 发布release版本"></a>ionic 发布release版本</h1><p><a href="https://ionicframework.com/docs/cli/commands/cordova-build" target="_blank" rel="noopener">https://ionicframework.com/docs/cli/commands/cordova-build</a></p>
+<h2 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h2><h3 id="运行以下cli命令："><a href="#运行以下cli命令：" class="headerlink" title="运行以下cli命令："></a>运行以下cli命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android --prod --release</span><br></pre></td></tr></table></figure>
 <p>这将产生基于设置的发布版本config.xml的platforms/android/build/outputs/apk应用程序的目录。Ionic应用程序将在此文件中预设默认值，但可以将其更改为自定义构建</p>
 <h3 id="APK签名"><a href="#APK签名" class="headerlink" title="APK签名"></a>APK签名</h3><p>首先，必须签署未签名的APK。如果已生成签名密钥，请跳过这些步骤并使用该步骤。使用Android SDK附带的keytool命令生成私钥：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -keystore myapp-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <p><img src="keystore.png" alt="keystore.png"></p>
 <p>my-release-key.keystore将在当前目录中创建一个被调用的文件;</p>
 <p>要签署未签名的APK，使用包含在Android SDK中的jarsigner工具：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore myapp-release-key.keystore app-release-unsigned.apk alias_name</span><br></pre></td></tr></table></figure>
-<p><img src="sign1.png" alt="sign1.png"></p>
-<h2 id="iOS版本"><a href="#iOS版本" class="headerlink" title="iOS版本"></a>iOS版本</h2><p>暂无</p>
-
+<p><img src="sign.png" alt="sign.png"></p>
+<h2 id="iOS版本"><a href="#iOS版本" class="headerlink" title="iOS版本"></a>iOS版本</h2>
       
     </div>
 

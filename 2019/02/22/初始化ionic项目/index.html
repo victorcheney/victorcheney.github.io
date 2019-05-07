@@ -10,16 +10,15 @@
   
 
   
-  <meta name="description" content="ionic 初始化项目步骤文档地址ionic V3: https://ionicframework.com/docs/v3/ionic V4: https://ionicframework.com/docs/
+  <meta name="description" content="ionic 初始化项目步骤文档地址ionic V3: https://ionicframework.com/docs/v3/
+ionic V4: https://ionicframework.com/docs/
 安装node、npm12npm -vnode -v
-全局安装ionic和cordova12npm install -g ionic  // 最新的4.10.3npm install -g cordova // 最新8.1.2
-https://ionicframework.com/docs/building/android
-初始化项目1ionic start myapp tabs">
+全局安装ionic和cordova1">
   
 
   
   
-  <meta name="keywords" content="Ionic,Angular">
+  <meta name="keywords" content="Angular,Ionic">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -93,14 +92,16 @@ https://ionicframework.com/docs/building/android
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="ionic-初始化项目步骤"><a href="#ionic-初始化项目步骤" class="headerlink" title="ionic 初始化项目步骤"></a>ionic 初始化项目步骤</h1><h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p>ionic V3: <a href="https://ionicframework.com/docs/v3/" target="_blank" rel="noopener">https://ionicframework.com/docs/v3/</a><br>ionic V4: <a href="https://ionicframework.com/docs/" target="_blank" rel="noopener">https://ionicframework.com/docs/</a></p>
+        <h1 id="ionic-初始化项目步骤"><a href="#ionic-初始化项目步骤" class="headerlink" title="ionic 初始化项目步骤"></a>ionic 初始化项目步骤</h1><h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p>ionic V3: <a href="https://ionicframework.com/docs/v3/" target="_blank" rel="noopener">https://ionicframework.com/docs/v3/</a></p>
+<p>ionic V4: <a href="https://ionicframework.com/docs/" target="_blank" rel="noopener">https://ionicframework.com/docs/</a></p>
 <h2 id="安装node、npm"><a href="#安装node、npm" class="headerlink" title="安装node、npm"></a>安装node、npm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
-<h2 id="全局安装ionic和cordova"><a href="#全局安装ionic和cordova" class="headerlink" title="全局安装ionic和cordova"></a>全局安装ionic和cordova</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g ionic  // 最新的4.10.3</span><br><span class="line">npm install -g cordova // 最新8.1.2</span><br></pre></td></tr></table></figure>
+<h2 id="全局安装ionic和cordova"><a href="#全局安装ionic和cordova" class="headerlink" title="全局安装ionic和cordova"></a>全局安装ionic和cordova</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g ionic  // 最新的4.10.3 项目中使用的是3.20.0</span><br><span class="line">npm install -g cordova // 最新8.1.2</span><br></pre></td></tr></table></figure>
 <p><a href="https://ionicframework.com/docs/building/android" target="_blank" rel="noopener">https://ionicframework.com/docs/building/android</a></p>
-<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic start myapp tabs</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="初始化platform命令"><a href="#初始化platform命令" class="headerlink" title="初始化platform命令"></a>初始化platform命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova platform add android // Android</span><br><span class="line"></span><br><span class="line">ionic cordova platform add ios // 初始化ios平台</span><br></pre></td></tr></table></figure>
-<h2 id="命令相关"><a href="#命令相关" class="headerlink" title="命令相关"></a>命令相关</h2><p>android:</p>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><pre><code>ionic start myapp tabs
+</code></pre><h2 id="初始化platform命令"><a href="#初始化platform命令" class="headerlink" title="初始化platform命令"></a>初始化platform命令</h2><pre><code>ionic cordova platform add android // Android
+
+ionic cordova platform add ios // 初始化ios平台
+</code></pre><h2 id="命令相关"><a href="#命令相关" class="headerlink" title="命令相关"></a>命令相关</h2><p>android:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova emulate android -lc 启动安卓模拟器并查看项目</span><br><span class="line">ionic cordova run android -lc  真机调试</span><br></pre></td></tr></table></figure>
 <p>iOS:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova emulate ios -lc</span><br><span class="line">ionic cordova run ios -lc</span><br></pre></td></tr></table></figure>
@@ -139,7 +140,7 @@ https://ionicframework.com/docs/building/android
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Ionic/">Ionic</a><a href="/tags/Angular/">Angular</a>
+        <a href="/tags/Angular/">Angular</a><a href="/tags/Ionic/">Ionic</a>
     </span>
     
 

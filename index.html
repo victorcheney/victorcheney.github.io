@@ -65,6 +65,256 @@
 
   
     
+    <h3 class="article-title"><a href="/2019/03/08/VSCode插件收藏/"><span>VSCode插件收藏</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/03/08/VSCode插件收藏/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-03-08T10:31:48.000Z">
+          2019-03-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="VSCode插件收藏"><a href="#VSCode插件收藏" class="headerlink" title="VSCode插件收藏"></a>VSCode插件收藏</h1><!-- TOC -->
+<ul>
+<li><a href="#vscode%E6%8F%92%E4%BB%B6%E6%94%B6%E8%97%8F">VSCode插件收藏</a><ul>
+<li><a href="#angular">Angular</a><ul>
+<li><a href="#angular7-%E9%A1%B9%E7%9B%AE%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6">angular7 项目必备插件</a></li>
+<li><a href="#angularjs-1x-%E7%89%88%E6%9C%AC%E7%9A%84%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E6%8F%92%E4%BB%B6">angularjs 1.x 版本的代码片段插件</a></li>
+</ul>
+</li>
+<li><a href="#javascript">JavaScript</a><ul>
+<li><a href="#es6%E4%BB%A3%E7%A0%81">ES6代码</a></li>
+<li><a href="#%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95">谷歌浏览器调试</a></li>
+<li><a href="#eslint%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E6%A3%80%E6%9F%A5">ESLint代码风格检查</a></li>
+<li><a href="#todo%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA">TODO高亮显示</a></li>
+<li><a href="#javascript%E4%BB%A3%E7%A0%81%E6%B7%BB%E5%8A%A0%E6%B3%A8%E9%87%8A">JavaScript代码添加注释</a></li>
+</ul>
+</li>
+<li><a href="#html">HTML</a><ul>
+<li><a href="#%E6%A0%87%E7%AD%BE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6htmlxml">标签自动补全插件（HTML/XML）</a></li>
+<li><a href="#%E6%A0%87%E7%AD%BE%E9%87%8D%E5%91%BD%E5%90%8D%E6%8F%92%E4%BB%B6">标签重命名插件</a></li>
+<li><a href="#html%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5">HTML代码检查</a></li>
+</ul>
+</li>
+<li><a href="#css">CSS</a><ul>
+<li><a href="#html%E4%B8%ADcss%E7%B1%BB%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA">HTML中CSS类智能提示</a></li>
+</ul>
+</li>
+<li><a href="#flutter">Flutter</a><ul>
+<li><a href="#flutter%E6%8F%92%E4%BB%B6">Flutter插件</a></li>
+<li><a href="#dart%E8%AF%AD%E8%A8%80%E6%94%AF%E6%8C%81">Dart语言支持</a></li>
+</ul>
+</li>
+<li><a href="#ionic">Ionic</a><ul>
+<li><a href="#cordova-%E5%B7%A5%E5%85%B7">Cordova 工具</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E6%8F%92%E4%BB%B6">代码片段插件</a></li>
+</ul>
+</li>
+<li><a href="#nodejs">NodeJs</a><ul>
+<li><a href="#nodejs%E6%A8%A1%E5%9D%97%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA">nodejs模块智能提示</a></li>
+<li><a href="#npm%E6%A8%A1%E5%9D%97%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA">npm模块智能提示</a></li>
+<li><a href="#%E8%B7%AF%E5%BE%84%E6%99%BA%E8%83%BD%E6%8F%90%E7%A4%BA">路径智能提示</a></li>
+</ul>
+</li>
+<li><a href="#markdown">Markdown</a><ul>
+<li><a href="#%E5%BF%AB%E6%8D%B7%E7%BC%96%E8%BE%91%E7%AD%89">快捷编辑等</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9B%AE%E5%BD%95">自动生成目录</a></li>
+<li><a href="#markdown%E8%AF%AD%E6%B3%95%E9%A3%8E%E6%A0%BC%E6%A3%80%E6%9F%A5">Markdown语法风格检查</a></li>
+</ul>
+</li>
+<li><a href="#vue">Vue</a><ul>
+<li><a href="#vue%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7">Vue调试工具</a></li>
+</ul>
+</li>
+<li><a href="#http">Http</a><ul>
+<li><a href="#%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95">接口测试</a></li>
+</ul>
+</li>
+<li><a href="#others">Others</a><ul>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%BE%8E%E5%8C%96">代码格式化/美化</a></li>
+<li><a href="#%E4%B8%AD%E6%96%87%E8%AF%AD%E8%A8%80%E5%8C%85">中文语言包</a></li>
+<li><a href="#eclipse-keymap-%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F">Eclipse Keymap 快捷方式</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95">代码修改历史记录</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96">代码格式化</a></li>
+<li><a href="#tortoisesvn%E6%8F%92%E4%BB%B6">TortoiseSVN插件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/VSCode/">VSCode</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/VSCode/">VSCode</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/03/04/Ionic资料收集/"><span>Ionic资料收集</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/03/04/Ionic资料收集/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-03-04T06:00:39.000Z">
+          2019-03-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="文档资料"><a href="#文档资料" class="headerlink" title="文档资料"></a>文档资料</h1><h2 id="夜间主题"><a href="#夜间主题" class="headerlink" title="夜间主题"></a>夜间主题</h2><p>Ionic3: <a href="https://www.cnblogs.com/metaphors/p/7897209.html" target="_blank" rel="noopener">https://www.cnblogs.com/metaphors/p/7897209.html</a>;</p>
+<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>Ionic3: <a href="https://www.jianshu.com/p/2b2d3d44861c" target="_blank" rel="noopener">https://www.jianshu.com/p/2b2d3d44861c</a></p>
+<h2 id="沉浸式状态栏"><a href="#沉浸式状态栏" class="headerlink" title="沉浸式状态栏"></a>沉浸式状态栏</h2><p><a href="https://www.jianshu.com/p/9859d86f1b92" target="_blank" rel="noopener">https://www.jianshu.com/p/9859d86f1b92</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Ionic/">Ionic</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Ionic/">Ionic</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2019/03/02/Angular之表单-响应式表单/"><span>Angular之表单-响应式表单</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/03/02/Angular之表单-响应式表单/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-03-02T10:36:13.000Z">
+          2019-03-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="Angular表单之响应式表单"><a href="#Angular表单之响应式表单" class="headerlink" title="Angular表单之响应式表单"></a>Angular表单之响应式表单</h1><p>响应式表单提供了一种模型驱动的方式来处理表单输入，其中的值会随时间而变化。响应式表单使用显式的、不可变的方式，管理表单在特定的时间点上的状态。对表单状态的每一次变更都会返回一个新的状态，这样可以在变化时维护模型的整体性。响应式表单是围绕 Observable 的流构建的，表单的输入和值都是通过这些输入值组成的流来提供的，它可以同步访问。</p>
+<p>响应式表单还提供了一种更直观的测试路径，因为在请求时你可以确信这些数据是一致的、可预料的。这个流的任何一个消费者都可以安全地操纵这些数据。</p>
+<p>响应式表单与模板驱动的表单有着显著的不同点。响应式表单通过对数据模型的同步访问提供了更多的可预测性，使用 Observable 的操作符提供了不可变性，并且通过 Observable 流提供了变化追踪功能。 如果你更喜欢在模板中直接访问数据，那么模板驱动的表单会显得更明确，因为它们依赖嵌入到模板中的指令，并借助可变数据来异步跟踪变化。参见表单概览来了解这两种范式之间的详细比较。</p>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Angular/">Angular</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Angular/">Angular</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2019/02/26/ionic发布release版本文档/"><span>ionic发布release版本文档</span></a></h3>
     
   
@@ -85,10 +335,17 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="ionic-发布release版本"><a href="#ionic-发布release版本" class="headerlink" title="ionic 发布release版本"></a>ionic 发布release版本</h1><h2 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h2><h3 id="运行以下cli命令："><a href="#运行以下cli命令：" class="headerlink" title="运行以下cli命令："></a>运行以下cli命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android --prod --release</span><br></pre></td></tr></table></figure>
+        <h1 id="ionic-发布release版本"><a href="#ionic-发布release版本" class="headerlink" title="ionic 发布release版本"></a>ionic 发布release版本</h1><p><a href="https://ionicframework.com/docs/cli/commands/cordova-build" target="_blank" rel="noopener">https://ionicframework.com/docs/cli/commands/cordova-build</a></p>
+<h2 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h2><h3 id="运行以下cli命令："><a href="#运行以下cli命令：" class="headerlink" title="运行以下cli命令："></a>运行以下cli命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova build android --prod --release</span><br></pre></td></tr></table></figure>
 <p>这将产生基于设置的发布版本config.xml的platforms/android/build/outputs/apk应用程序的目录。Ionic应用程序将在此文件中预设默认值，但可以将其更改为自定义构建</p>
 <h3 id="APK签名"><a href="#APK签名" class="headerlink" title="APK签名"></a>APK签名</h3><p>首先，必须签署未签名的APK。如果已生成签名密钥，请跳过这些步骤并使用该步骤。使用Android SDK附带的keytool命令生成私钥：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool -genkey -v -keystore myapp-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000</span><br></pre></td></tr></table></figure>
+<p><img src="keystore.png" alt="keystore.png"></p>
+<p>my-release-key.keystore将在当前目录中创建一个被调用的文件;</p>
+<p>要签署未签名的APK，使用包含在Android SDK中的jarsigner工具：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore myapp-release-key.keystore app-release-unsigned.apk alias_name</span><br></pre></td></tr></table></figure>
+<p><img src="sign.png" alt="sign.png"></p>
+<h2 id="iOS版本"><a href="#iOS版本" class="headerlink" title="iOS版本"></a>iOS版本</h2>
       
     </div>
 
@@ -147,11 +404,32 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="ionic-初始化项目步骤"><a href="#ionic-初始化项目步骤" class="headerlink" title="ionic 初始化项目步骤"></a>ionic 初始化项目步骤</h1><h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p>ionic V3: <a href="https://ionicframework.com/docs/v3/" target="_blank" rel="noopener">https://ionicframework.com/docs/v3/</a><br>ionic V4: <a href="https://ionicframework.com/docs/" target="_blank" rel="noopener">https://ionicframework.com/docs/</a></p>
+        <h1 id="ionic-初始化项目步骤"><a href="#ionic-初始化项目步骤" class="headerlink" title="ionic 初始化项目步骤"></a>ionic 初始化项目步骤</h1><h2 id="文档地址"><a href="#文档地址" class="headerlink" title="文档地址"></a>文档地址</h2><p>ionic V3: <a href="https://ionicframework.com/docs/v3/" target="_blank" rel="noopener">https://ionicframework.com/docs/v3/</a></p>
+<p>ionic V4: <a href="https://ionicframework.com/docs/" target="_blank" rel="noopener">https://ionicframework.com/docs/</a></p>
 <h2 id="安装node、npm"><a href="#安装node、npm" class="headerlink" title="安装node、npm"></a>安装node、npm</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
-<h2 id="全局安装ionic和cordova"><a href="#全局安装ionic和cordova" class="headerlink" title="全局安装ionic和cordova"></a>全局安装ionic和cordova</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g ionic  // 最新的4.10.3</span><br><span class="line">npm install -g cordova // 最新8.1.2</span><br></pre></td></tr></table></figure>
+<h2 id="全局安装ionic和cordova"><a href="#全局安装ionic和cordova" class="headerlink" title="全局安装ionic和cordova"></a>全局安装ionic和cordova</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g ionic  // 最新的4.10.3 项目中使用的是3.20.0</span><br><span class="line">npm install -g cordova // 最新8.1.2</span><br></pre></td></tr></table></figure>
 <p><a href="https://ionicframework.com/docs/building/android" target="_blank" rel="noopener">https://ionicframework.com/docs/building/android</a></p>
-<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic start myapp tabs</span><br></pre></td></tr></table></figure>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><pre><code>ionic start myapp tabs
+</code></pre><h2 id="初始化platform命令"><a href="#初始化platform命令" class="headerlink" title="初始化platform命令"></a>初始化platform命令</h2><pre><code>ionic cordova platform add android // Android
+
+ionic cordova platform add ios // 初始化ios平台
+</code></pre><h2 id="命令相关"><a href="#命令相关" class="headerlink" title="命令相关"></a>命令相关</h2><p>android:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova emulate android -lc 启动安卓模拟器并查看项目</span><br><span class="line">ionic cordova run android -lc  真机调试</span><br></pre></td></tr></table></figure>
+<p>iOS:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova emulate ios -lc</span><br><span class="line">ionic cordova run ios -lc</span><br></pre></td></tr></table></figure>
+<h2 id="插件相关"><a href="#插件相关" class="headerlink" title="插件相关"></a>插件相关</h2><h3 id="Cordova插件可防止应用在后台进入睡眠状态。需要Cordova插件：cordova-plugin-background-mode。有关插件的更多信息，请访问：https：-github-com-katzer-cordova-plugin-background-mode"><a href="#Cordova插件可防止应用在后台进入睡眠状态。需要Cordova插件：cordova-plugin-background-mode。有关插件的更多信息，请访问：https：-github-com-katzer-cordova-plugin-background-mode" class="headerlink" title="Cordova插件可防止应用在后台进入睡眠状态。需要Cordova插件：cordova-plugin-background-mode。有关插件的更多信息，请访问：https：//github.com/katzer/cordova-plugin-background-mode"></a>Cordova插件可防止应用在后台进入睡眠状态。需要Cordova插件：cordova-plugin-background-mode。有关插件的更多信息，请访问：https：//github.com/katzer/cordova-plugin-background-mode</h3><p>安装Cordova和Ionic Native插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova plugin add cordova-plugin-background-mode</span><br><span class="line">npm install --save @ionic-native/background-mode@4   // 3.xx.xx版本</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BackgroundMode &#125; from &apos;@ionic-native/background-mode&apos;;</span><br><span class="line"></span><br><span class="line">constructor(private backgroundMode: BackgroundMode) &#123; &#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">this.backgroundMode.enable();</span><br></pre></td></tr></table></figure>
+<h3 id="集成极光推送https-www-jianshu-com-p-0f1c2a1d1dc9"><a href="#集成极光推送https-www-jianshu-com-p-0f1c2a1d1dc9" class="headerlink" title="集成极光推送https://www.jianshu.com/p/0f1c2a1d1dc9"></a>集成极光推送<a href="https://www.jianshu.com/p/0f1c2a1d1dc9" target="_blank" rel="noopener">https://www.jianshu.com/p/0f1c2a1d1dc9</a></h3><p><code>截止20190222极光推送不支持ionic4</code></p>
+<h3 id="本地消息通知cordova-plugin-local-notification"><a href="#本地消息通知cordova-plugin-local-notification" class="headerlink" title="本地消息通知cordova-plugin-local-notification"></a>本地消息通知<code>cordova-plugin-local-notification</code></h3><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ionic cordova plugin add cordova-plugin-local-notification</span><br><span class="line">npm install --save @ionic-native/local-notifications@4</span><br></pre></td></tr></table></figure>
+<h4 id="支持情况"><a href="#支持情况" class="headerlink" title="支持情况"></a>支持情况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Android</span><br><span class="line">iOS</span><br><span class="line">Windows</span><br></pre></td></tr></table></figure>
+<p>已知的问题</p>
+<p>对Android Oreo的支持还有限。<br>v0.9和v0.8彼此不兼容（不修复</p>
+<p>用法： v3：<a href="https://ionicframework.com/docs/v3/native/local-notifications/" target="_blank" rel="noopener">https://ionicframework.com/docs/v3/native/local-notifications/</a></p>
+<h2 id="F-amp-Q"><a href="#F-amp-Q" class="headerlink" title="F&amp;Q"></a>F&amp;Q</h2><p>1、ionic 安装失败<br><a href="https://blog.csdn.net/qq_31482717/article/details/54565253" target="_blank" rel="noopener">https://blog.csdn.net/qq_31482717/article/details/54565253</a></p>
+<p>2、项目提示错误：Current working directory is not a Cordova-based project.</p>
+<p>解决方案： ionic cordova platform add android <a href="https://www.jianshu.com/p/35ee988cc1d4" target="_blank" rel="noopener">https://www.jianshu.com/p/35ee988cc1d4</a></p>
+
       
     </div>
 
@@ -174,7 +452,7 @@
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Ionic/">Ionic</a><a href="/tags/Angular/">Angular</a>
+        <a href="/tags/Angular/">Angular</a><a href="/tags/Ionic/">Ionic</a>
     </span>
     
 
@@ -482,202 +760,6 @@
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/tags/JavaScript/">JavaScript</a><a href="/tags/leaflet/">leaflet</a><a href="/tags/Haversine/">Haversine</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/02/28/修改hosts文件大法/"><span>修改hosts文件大法</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/02/28/修改hosts文件大法/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-02-28T14:04:10.000Z">
-          2018-02-28
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h1 id="改HOSTS大法"><a href="#改HOSTS大法" class="headerlink" title="改HOSTS大法"></a>改HOSTS大法</h1><p>Windows下在C:/Windows/system32/drivers/etc/hosts<br>Ubuntu等linux系一般在/etc/hosts</p>
-<h2 id="在hosts中添加如下内容："><a href="#在hosts中添加如下内容：" class="headerlink" title="在hosts中添加如下内容："></a>在hosts中添加如下内容：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> # Github</span><br><span class="line">151.101.44.249 github.global.ssl.fastly.net</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">103.245.222.133 assets-cdn.github.com</span><br><span class="line">23.235.47.133 assets-cdn.github.com</span><br><span class="line">203.208.39.104 assets-cdn.github.com</span><br><span class="line">204.232.175.78 documentcloud.github.com</span><br><span class="line">204.232.175.94 gist.github.com</span><br><span class="line">107.21.116.220 help.github.com</span><br><span class="line">207.97.227.252 nodeload.github.com</span><br><span class="line">199.27.76.130 raw.github.com</span><br><span class="line">107.22.3.110 status.github.com</span><br><span class="line">204.232.175.78 training.github.com</span><br><span class="line">207.97.227.243 www.github.com</span><br><span class="line">185.31.16.184 github.global.ssl.fastly.net</span><br><span class="line">185.31.18.133 avatars0.githubusercontent.com</span><br><span class="line">185.31.19.133 avatars1.githubusercontent.com</span><br></pre></td></tr></table></figure>
-<h2 id="改完之后立刻刷新"><a href="#改完之后立刻刷新" class="headerlink" title="改完之后立刻刷新"></a>改完之后立刻刷新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows：ipconfig /flushdns</span><br><span class="line">Ubuntu：sudo systemctl restart nscd</span><br></pre></td></tr></table></figure>
-<h2 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h2><p>修改hosts文件神器 <code>SwitchHosts!</code> <a href="https://github.com/oldj/SwitchHosts/releases" target="_blank" rel="noopener">https://github.com/oldj/SwitchHosts/releases</a></p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Github/">Github</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Github/">Github</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/01/12/docker命令/"><span>docker命令</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/01/12/docker命令/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-01-12T13:13:28.000Z">
-          2018-01-12
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>进入容器</p>
-<pre><code>sudo docker exec -it &lt;containername&gt; // sudo 为Linux系统管理员权限命令
-</code></pre><p>1.停止所有的container，这样才能够删除其中的images：</p>
-<pre><code>docker stop $(docker ps -a -q)
-</code></pre><p>如果想要删除所有container的话再加一个指令：</p>
-<pre><code>docker rm $(docker ps -a -q)
-</code></pre><p>2.查看当前有些什么images</p>
-<pre><code>docker images
-</code></pre>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Docker/">Docker</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Docker/">Docker</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/12/20/Node-文件路径/"><span>Node--文件路径</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/12/20/Node-文件路径/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-12-20T10:26:30.000Z">
-          2017-12-20
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h3 id="nodejs中的几种文件路径比较"><a href="#nodejs中的几种文件路径比较" class="headerlink" title="nodejs中的几种文件路径比较"></a>nodejs中的几种文件路径比较</h3><p>在调试一个node代码的时候，总是出问题，最后找到原因是由于路径的问题，node中的路径有全局变量<code>__dirname</code>、全局变量<code>__filename</code>、<code>./</code>、<code>../</code>以及<code>process.cwd()</code><br>首先看个例子：</p>
-<p> 在桌面的nodedemo文件夹新建了simple.js文件，对以上几种路径进行输出<br><img src="nodepath.png" alt=""></p>
-<p>1、__dirname: 表示当前模块所在的文件夹的绝对路径。</p>
-<p>2、__filename: 表示当前模块的绝对路径</p>
-<p>3、process.cwd()表示的是node进程当前工作的绝对路径</p>
-<p>4、./在打印的时候要借助path.resolve()进行转换，与process.cwd()效果相同</p>
-<p>5、../表示当前工作目录的上级目录</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Node/">Node</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Node/">Node</a>
     </span>
     
 
