@@ -42,6 +42,7 @@ tags:
 控制台进度条 `npm install progress`
 
 ```code
+
     var ProgressBar = require('progress');
 
     var bar = new ProgressBar(':bar', { total: 10 });
@@ -53,3 +54,7 @@ tags:
     }
     }, 100);
 ```
+
+### [qs](https://www.npmjs.com/package/qs)
+
+查询字符串解析和字符串化库，增加了一些安全性。
