@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>VSCode中使用TFS | VICTORCHENEY | INNERPEACE</title>
+
+  
+  <meta name="author" content="victor cheney">
+  
+
+  
+  <meta name="description" content="VSCode中使用TFS版本管理工具介绍TFS全称Team Foundation Server，是一种为 Microsoft 产品提供 源代码管理、 数据收集、 报告和项目跟踪，而为协作 软件开发 的项目。 可作为独立的软件，或 Visual Studio Team System (VSTS) 在服务器端后端平台。大型的IDE例如Visio Studio IDE、Eclipse或JetBrains IDE（例如，Android Studio，IntelliJ）等，都集成了TFS控件。对于前码农来说，目前最流行VSCode编辑器，则需要安装微软的官方插件，并进行一系列的配置，下面记录一下配置过程。">
+  
+
+  
+  
+  <meta name="keywords" content="VSCode,Azure Repos,TFS">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="VSCode中使用TFS">
+
+  <meta property="og:site_name" content="VICTORCHENEY">
+
+  
+  <meta property="og:image" content="/favicon.ico">
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="VICTORCHENEY" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">VICTORCHENEY</a>
+    </h1>
+    <p class="site-description">INNERPEACE</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/categories">分类</a></li>
+      
+        <li><a href="/tags">标签</a></li>
+      
+        <li><a href="/about">关于</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>VSCode中使用TFS</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/05/27/VSCode中使用TFS/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-05-27T01:18:41.000Z">
+          2019-05-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="VSCode中使用TFS版本管理工具"><a href="#VSCode中使用TFS版本管理工具" class="headerlink" title="VSCode中使用TFS版本管理工具"></a>VSCode中使用TFS版本管理工具</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>TFS全称Team Foundation Server，是一种为 Microsoft 产品提供 源代码管理、 数据收集、 报告和项目跟踪，而为协作 软件开发 的项目。 可作为独立的软件，或 Visual Studio Team System (VSTS) 在服务器端后端平台。大型的IDE例如Visio Studio IDE、Eclipse或JetBrains IDE（例如，Android Studio，IntelliJ）等，都集成了TFS控件。对于前码农来说，目前最流行VSCode编辑器，则需要安装微软的官方插件，并进行一系列的配置，下面记录一下配置过程。</p>
+<a id="more"></a>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>VSCode 1.34.0</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>插件搜索TFS的结果中会有几条第三方的插件，我们这里使用的时官方推荐的 <code>Azure Repos</code> 扩展插件。官方介绍：</p>
+<blockquote>
+<p>此扩展允许您连接到<code>Azure DevOps Services</code>和<code>Team Foundation Server</code>，并为<code>Team Foundation版本控制（TFVC）</code>提供支持。它允许您监视构建并管理TFVC或Git源存储库的pull请求和工作项。该扩展使用您的本地存储库信息连接到<code>Azure DevOps Services</code>或<code>Team Foundation Server 2015 Update 2（及更高版本）。</code></p>
+</blockquote>
+<p>安装完毕后，左下角会出现一个 Team 标识。</p>
+<h3 id="TFVC命令行客户端"><a href="#TFVC命令行客户端" class="headerlink" title="TFVC命令行客户端"></a>TFVC命令行客户端</h3><p>VSCode中需要依赖TF命令客户端，才能提供TFVC支持。如果没有TF命令客户端，TFVC将无法正常工作。下面分两种况：1、安装了 Visio Studio IDE（windows）；2、Eclipse，JetBrains IDE（Windows，macOS，Linux）</p>
+<h4 id="安装了-Visio-Studio-IDE（windows）"><a href="#安装了-Visio-Studio-IDE（windows）" class="headerlink" title="安装了 Visio Studio IDE（windows）"></a>安装了 Visio Studio IDE（windows）</h4><p>通过典型的Visual Studio安装，可以在<code>Program Files (x86)</code>文件夹下找到Windows版本的TFVC命令行客户端（tf.exe）。它通常会放置在类似的位置 <code>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\TF.exe</code>。在2017版本的Visual Studio社区中，可以在类似的位置找到它<code>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\TF.exe</code></p>
+<h4 id="Eclipse，JetBrains-IDE（Windows，macOS，Linux）"><a href="#Eclipse，JetBrains-IDE（Windows，macOS，Linux）" class="headerlink" title="Eclipse，JetBrains IDE（Windows，macOS，Linux）"></a>Eclipse，JetBrains IDE（Windows，macOS，Linux）</h4><p>需要下载Team Explorer Everywhere命令行客户端（TEE CLC），下载地址<a href="https://github.com/Microsoft/team-explorer-everywhere/releases/download/v14.114.0/TEE-CLC-14.114.0.zip" target="_blank" rel="noopener">TEE-CLC-14.114.0.zip</a>。下载完成后解压都某个文件夹内。</p>
+<p>win + R 输入cmd打开终端，进入到刚刚解压的TEE CLC目录中，执行命令 <code>tf eula</code>接受TEE最终用户许可协议, 在此之前要确认正确安装JDK,正确配置了Java环境。</p>
+<h3 id="配置TFVC支持"><a href="#配置TFVC支持" class="headerlink" title="配置TFVC支持"></a>配置TFVC支持</h3><p>文件&gt;首选项&gt;设置，打开设置页面搜索 <code>tfvc: localtion</code> 如下设置：</p>
+<p><img src="vscode-tfs配置.png" alt="vscode-tfs配置.png"></p>
+<p>如果是使用的 VS IDE的tf.exe命令行客户端，则把地址配置为<code>tf.exe</code>即可。</p>
+<h4 id="将状态更改限制为当前VS代码工作区"><a href="#将状态更改限制为当前VS代码工作区" class="headerlink" title="将状态更改限制为当前VS代码工作区"></a>将状态更改限制为当前VS代码工作区</h4><p>默认情况下，TFVC支持显示整个映射工作空间的状态，而不管您在Visual Studio代码中打开的文件夹。如果您只想查看当前打开的VS Code工作区的更改状态，可以通过在Visual Studio代码设置（文件&gt;首选项&gt;设置）中勾选以下设置：</p>
+<p><img src="tfvs-restrictWorkspace.png" alt="tfvs-restrictWorkspace.png"></p>
+<h3 id="Team-Foundation版本控制"><a href="#Team-Foundation版本控制" class="headerlink" title="Team Foundation版本控制"></a>Team Foundation版本控制</h3><h4 id="打开本地存储库文件夹"><a href="#打开本地存储库文件夹" class="headerlink" title="打开本地存储库文件夹"></a>打开本地存储库文件夹</h4><p>打开本地的存储库根目录或者子目录文件夹，扩展程序检测到存储库后，提示登录。点击左下角的 <code>Team</code>标识或 点击 <code>F1</code> 输入 team 选择 <code>team: singin</code> 输入用户名和密码，连接TFS服务器</p>
+<h4 id="登录成功后的状态栏"><a href="#登录成功后的状态栏" class="headerlink" title="登录成功后的状态栏"></a>登录成功后的状态栏</h4><p><img src="vscode登录tfs成功后的状态.png" alt="vscode登录tfs成功后的状态.png"></p>
+<ul>
+<li>第一个是存储库所属的团队项目的名称。单击该项将打开浏览器到团队网站。</li>
+<li>第二个状态栏项显示此特定存储库和分支的构建状态。将鼠标悬停在项目上将提供有关引用哪个构建（如果有）的其他信息。单击该项将带您进入浏览器中该版本的摘要页面。该指标每5分钟更新一次</li>
+<li>第三个状态栏项显示固定工作项查询返回的项目数。如果尚未配置固定查询，则默认为分配给您的工作项。单击该项将显示查询返回的工作项。该指标每5分钟更新一次</li>
+<li>单击第四个状态栏项可快速发送有关Azure Repos扩展的反馈</li>
+</ul>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>除状态栏集成外，该扩展还提供了几个用于与Azure DevOps Services和Team Foundation Server进行交互的命令。在Command Palette（F1）中，键入team并选择一个命令。</p>
+<ul>
+<li><p><code>team associate work items</code> - 提示您选择分配给您的工作项（或自定义查询的结果）。选择工作项会将其添加到当前的提交/签入消息中。</p>
+</li>
+<li><p><code>team create bug</code> - 将浏览器打开到用于创建新错误的网页。如果在Visual Studio代码中突出显示单行文本，则它将用作错误的标题。该错误将分配给您。然后，您可以选择更新字段，保存，取消等。</p>
+</li>
+<li><p><code>team create pull request</code>- 仅限Git根据当前存储库和分支打开浏览器以获取新的拉取请求。在创建拉取请求之前，请确保在运行命令之前保存，提交和推送您所做的任何更改。这样做可确保您的所有最新更改都是拉取请求的一部分。</p>
+</li>
+<li><p><code>team create task</code> - 将浏览器打开到用于创建新任务的网页。如果在Visual Studio代码中突出显示单行文本，则它将用作任务的标题。任务将分配给您。然后，您可以选择更新字段，保存，取消等</p>
+</li>
+<li><p><code>team create work item</code> - 提示您从团队项目中可用的列表中选择工作项类型。进行选择后，浏览器将打开用于创建工作项的网页。如果在Visual Studio代码中突出显示单行f文本，则它将用作任务的标题。工作项目将分配给您。然后，您可以选择更新字段，保存，取消等。</p>
+</li>
+<li><p><code>team send feedback</code> - 提示你发微笑或皱眉。选择后，您可以向我们提供最多1000个字符的反馈。（可选）提供您的电子邮件地址，以便我们在您需要时联系。如果您不想提供您的电子邮件地址，请将其留空（我们仍会收到您的反馈）。注意： 即使禁用遥测报告，也可以发送反馈。</p>
+</li>
+<li><p><code>team signin</code> - 使用此命令登录Azure DevOps Services组织或Team Foundation Server 2015 Update 2（及更高版本）服务器。提供凭据后，它们将安全地存储在您的计算机上。保存的凭据将用于该组织，直到它们被team signout命令删除或被后续team signin命令覆盖。有关更多详细信息，请参阅下面的“Secure Credential Storage”主题。</p>
+</li>
+<li><p><code>team signout</code> - 使用此命令从Azure DevOps Services组织或Team Foundation Server 2015 Update 2（及更高版本）服务器注销。注销将从您的本地计算机中删除您的凭据。要重新登录，您需要team signin再次运行该命令。</p>
+</li>
+<li><p><code>team view blame</code>- 仅限Git如果在编辑器中打开了存储库中的文件，它将打开浏览器到服务器存储库中当前分支中该文件的blame页面。</p>
+</li>
+<li><p><code>team view build summary</code> - 与单击“生成状态”状态栏项相同的行为。</p>
+</li>
+<li><p><code>team view history</code> - 如果在编辑器中打开存储库中的文件，它将打开浏览器到服务器存储库中当前分支中该文件的历史记录页面。否则，将打开服务器存储库中当前分支的历史记录。此命令支持TFVC存储库。</p>
+</li>
+<li><p><code>team view pull requests</code>- Git only与单击Pull Requests状态栏项相同的行为。</p>
+</li>
+<li><p><code>team view website</code> - 与单击团队项目状态栏项相同的行为。</p>
+</li>
+<li><p><code>team view work items</code> - 提示您选择分配给您的工作项，按ChangedDate降序排序。选择工作项将在浏览器中打开它。此命令将返回最多200个结果，并带有“浏览其他工作项…”选项。选择该选项将打开浏览器以显示查询的所有结果。</p>
+</li>
+<li><p><code>team view work item queries</code> - 提示您选择存储在团队项目的“我的查询”文件夹中的查询。选择查询将运行它并在“快速选择”列表中显示结果。选择其中一个结果将在浏览器中打开该工作项。此命令将返回最多200个结果，并带有“浏览其他工作项…”选项。选择该选项将打开浏览器以显示查询的所有结果。</p>
+</li>
+</ul>
+<h2 id="TFVC源代码控制视图"><a href="#TFVC源代码控制视图" class="headerlink" title="TFVC源代码控制视图"></a>TFVC源代码控制视图</h2><p>Team Foundation版本控制Viewlet<br><img src="tfvc-viewlet.png" alt="tfvc-viewlet.png"><br>它显示任何冲突更改的列表（要在下次签入之前解决），包含的更改（要包括在下次签入中的更改），排除的更改（保留更改但从签入中排除）。该Viewlet还提供了右键单击上下文菜单，以允许其他功能，如撤消，包含和排除。</p>
+<h3 id="签入和刷新"><a href="#签入和刷新" class="headerlink" title="签入和刷新"></a>签入和刷新</h3><p><img src="tfvc-checkin-refresh.png" alt="tfvc-checkin-refresh.png"></p>
+<ul>
+<li><code>Check In</code>- 此check mark按钮用于检入您的更改。系统不会提示您输入注释，因此请确保在单击之前提供注释。</li>
+<li><code>Refresh</code>- 此circular arrow按钮运行TFVC Status命令并处理结果</li>
+</ul>
+<h3 id="菜单"><a href="#菜单" class="headerlink" title="菜单"></a>菜单</h3><p><img src="tfs-menu.png" alt="tfs-menu.png"></p>
+<ul>
+<li><code>Sync</code>- 此选项运行Get命令并处理任何冲突或错误, 同步代码。</li>
+<li><code>Associate Work Items</code> - 要将工作项关联到您的签到，请选择此选项。将显示分配给您（或从您的自定义查询返回）的工作项列表供您选择。选择一个会将其添加到您的签到评论中。</li>
+<li><code>Check In</code> - 使用此选项签入您的更改。</li>
+<li><code>Undo All</code> - 如果有文件修改，此命令将提示确认，然后撤消所有更改。</li>
+<li><code>Show TFVC Output</code> - 使用此选项可显示显示TFVC Output在此会话期间运行的TFVC命令的窗口。</li>
+</ul>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p><img src="tfvc-resolve-conflicts.png" alt="tfvc-resolve-conflicts.png"></p>
+<ul>
+<li><code>Open Diff</code> - 打开修改后的文件和版本化文件之间的差异视图。</li>
+<li><code>Open File</code> - 在编辑器中打开修改后的文件。</li>
+<li><code>Resolve</code>: Take Theirs- 解决冲突Take Theirs。</li>
+<li><code>Resolve</code>: Keep Yours- 解决冲突Keep Yours。</li>
+<li><code>Undo</code> - 恢复对文件所做的更改。</li>
+</ul>
+<p>注意：扩展中不支持解决分支之间的冲突。此时，这些冲突最好在IDE或命令行中解决。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://github.com/microsoft/azure-repos-vscode" target="_blank" rel="noopener">https://github.com/microsoft/azure-repos-vscode</a></p>
+<p><a href="https://github.com/microsoft/azure-repos-vscode/blob/master/TFVC_README.md" target="_blank" rel="noopener">https://github.com/microsoft/azure-repos-vscode/blob/master/TFVC_README.md</a></p>
+<p><a href="https://docs.microsoft.com/zh-cn/azure/devops/repos/tfvc/add-files-server?view=azure-devops#tfignore-file-example" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/azure/devops/repos/tfvc/add-files-server?view=azure-devops#tfignore-file-example</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/VSCode/">VSCode</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/VSCode/">VSCode</a><a href="/tags/Azure-Repos/">Azure Repos</a><a href="/tags/TFS/">TFS</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    <br>
+    
+    &copy; 2019 victor cheney
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
