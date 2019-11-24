@@ -14,7 +14,9 @@
 第一步：
 curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
 第二步：
-sudo yum -y install nodejs">
+sudo yum -y install nodejs
+方法二下载二进制文件
+wget https:/">
   
 
   
@@ -98,6 +100,14 @@ sudo yum -y install nodejs">
 <p><code>curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -</code></p>
 <p>第二步：</p>
 <p><code>sudo yum -y install nodejs</code></p>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>下载二进制文件</p>
+<p><code>wget https://nodejs.org/dist/v10.17.0/node-v10.17.0-linux-x64.tar.xz</code></p>
+<p>解压</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xz -d node-v10.<span class="number">17</span>.<span class="number">0</span>-linux-x64.tar.xz</span><br><span class="line">tar -xf node-v10.<span class="number">17</span>.<span class="number">0</span>-linux-x64.tar</span><br></pre></td></tr></table></figure>
+<p>创建软链接(主要 node 解压目录)</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s ~/node-v10.<span class="number">17</span>.<span class="number">0</span>-linux-x64/bin/node /usr/bin/node</span><br><span class="line">ln -s ~/node-v10.<span class="number">17</span>.<span class="number">0</span>-linux-x64/bin/npm /usr/bin/npm</span><br></pre></td></tr></table></figure>
+<p>查看 node 版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_0_9_centos /]# npm -v</span><br><span class="line">6.11.3</span><br><span class="line">[root@VM_0_9_centos /]# node -v</span><br><span class="line">v10.17.0</span><br></pre></td></tr></table></figure>
 
       
     </div>
