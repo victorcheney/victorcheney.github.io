@@ -8,3 +8,5 @@ tags:
 【转载】
 
 [Yapi 安装使用](https://zhuanlan.zhihu.com/p/47497510)
+
+[官方教程](https://hellosean1025.github.io/yapi/devops/index.html)
