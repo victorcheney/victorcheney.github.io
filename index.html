@@ -65,6 +65,107 @@
 
   
     
+    <h3 class="article-title"><a href="/2019/11/24/Cenos7安装Mongodb/"><span>Cenos7安装Mongodb</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2019/11/24/Cenos7安装Mongodb/" rel="bookmark">
+        <time class="entry-date published" datetime="2019-11-24T13:32:07.000Z">
+          2019-11-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="添加-Mongodb-源"><a href="#添加-Mongodb-源" class="headerlink" title="添加 Mongodb 源"></a>添加 Mongodb 源</h2><p>在 CentOS 7 源中默认不包含 MongoDB 的数据源。所以，我们需要自己添加 MongoDB 源，采用 MongoDB4.0 版本</p>
+<p>创建源配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/mongodb-org-4.0.repo</span><br></pre></td></tr></table></figure>
+<p>将以下内容写入文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mongodb-org-4.0]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc</span><br></pre></td></tr></table></figure>
+<h2 id="安装-MongoDB"><a href="#安装-MongoDB" class="headerlink" title="安装 MongoDB"></a>安装 MongoDB</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mongodb-org</span><br></pre></td></tr></table></figure>
+<p>安装的包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">=======================================================================================</span><br><span class="line"> Package                       Arch       Version          Repository          Size</span><br><span class="line">=======================================================================================</span><br><span class="line">Installing:</span><br><span class="line"> mongodb-org                   x86_64     4.0.13-1.el7     mongodb-org-4.0     5.8 k</span><br><span class="line">Installing for dependencies:</span><br><span class="line"> mongodb-org-mongos            x86_64     4.0.13-1.el7     mongodb-org-4.0     12 M</span><br><span class="line"> mongodb-org-server            x86_64     4.0.13-1.el7     mongodb-org-4.0     21 M</span><br><span class="line"> mongodb-org-shell             x86_64     4.0.13-1.el7     mongodb-org-4.0     13 M</span><br><span class="line"> mongodb-org-tools             x86_64     4.0.13-1.el7     mongodb-org-4.0     46 M</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mongodb-org-server - 标准的 MongoDB 服务端程序（既守护程序），以及相应的 init 脚本和配置</li>
+<li>mongodb-org-mongos - MongoDB Shard 集群服务端程序（守护进程）</li>
+<li>mongodb-org-shell - MongoDB shell，用于通过命令行与 MongoDB 交互</li>
+<li>mongodb-org-tools - 包含一些用于恢复，导入和导出数据的基本工具，以及其他各种功能。</li>
+</ul>
+<h2 id="配置-MongoDB"><a href="#配置-MongoDB" class="headerlink" title="配置 MongoDB"></a>配置 MongoDB</h2><p>MongoDB 的配置文件位于/etc/mongod.conf，并以 YAML 格式编写。大多数设置在文件中都有非常好（便于理解）的注释。我们概述了以下默认选项:</p>
+<ul>
+<li>systemLog 指定各种日志记录选项，解释如下：<ul>
+<li>destination 告诉 MongoDB 是将日志输出存储为文件或者是系统日志</li>
+<li>logAppend 指定守护程序重新启动时是否将新日志记录附加到现有日志的末尾（而不是创建备份并在重新启动时启动新日志）</li>
+<li>path 告诉服务端程序（守护进程）发送日志信息到某个位置（/var/log/mongodb/mongod.log 默认情况下）</li>
+</ul>
+</li>
+<li>storage 设置 MongoDB 如何存储数据，设置如下：<ul>
+<li>dbPath 指示数据库文件的存储位置（默认：/var/lib/mongo）</li>
+<li>journal.enabled 启用或禁用日志，以确保数据文件可以恢复</li>
+</ul>
+</li>
+<li>net 指定各种网络选项，具体如下：<ul>
+<li>port 是 MongoDB 服务端（守护）程序监听的端口</li>
+<li>bindIP 指定 MongoDB 绑定的 IP 地址，因此它可以监听来自其他应用程序的连接</li>
+</ul>
+</li>
+</ul>
+<p>取消注释该 security 部分并添加以下内容：</p>
+<p>文件位置：/etc/mongod.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
+<p>该 authorization 选项为你的数据库启用基于角色的访问控制。如果未指定任何值，则任何用户都可以修改任何数据库。</p>
+<h2 id="启动和停止-MongoDB"><a href="#启动和停止-MongoDB" class="headerlink" title="启动和停止 MongoDB"></a>启动和停止 MongoDB</h2><p>要启动，重新启动或停止 MongoDB 服务，请从以下命令发出相应的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mongod</span><br><span class="line">sudo systemctl restart mongod</span><br><span class="line">sudo systemctl stop mongod</span><br></pre></td></tr></table></figure>
+<p>你还可以设置开机时候 MongoDB 自动启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable mongod</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="https://cloud.tencent.com/developer/article/1329170" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1329170</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Linux/">Linux</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Linux/">Linux</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2019/11/24/yum-安装最新版本nodejs/"><span>yum 安装最新版本nodejs</span></a></h3>
     
   
@@ -583,7 +684,7 @@ ionic cordova platform add ios // 初始化ios平台
 
     <span class="post-tags">
       <i class="icon-tags"></i>
-        <a href="/tags/Ionic/">Ionic</a><a href="/tags/Angular/">Angular</a>
+        <a href="/tags/Angular/">Angular</a><a href="/tags/Ionic/">Ionic</a>
     </span>
     
 
@@ -708,68 +809,6 @@ ionic cordova platform add ios // 初始化ios平台
     <span class="post-tags">
       <i class="icon-tags"></i>
         <a href="/tags/错误监控收集/">错误监控收集</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2018/11/15/Node-常用模块收藏/"><span>Node--常用模块收藏</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2018/11/15/Node-常用模块收藏/" rel="bookmark">
-        <time class="entry-date published" datetime="2018-11-15T08:32:55.000Z">
-          2018-11-15
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h3 id="Node-常用模块收藏"><a href="#Node-常用模块收藏" class="headerlink" title="Node 常用模块收藏"></a>Node 常用模块收藏</h3><h3 id="inquirer-https-www-npmjs-com-package-inquirer"><a href="#inquirer-https-www-npmjs-com-package-inquirer" class="headerlink" title="inquirer https://www.npmjs.com/package/inquirer"></a>inquirer <a href="https://www.npmjs.com/package/inquirer" target="_blank" rel="noopener">https://www.npmjs.com/package/inquirer</a></h3><p>常用交互式命令行用户界面的集合:</p>
-<blockquote>
-<p>提供错误反馈<br>问问题<br>解析输入<br>验证答案<br>管理分层提示  </p>
-</blockquote>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/Node/">Node</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/Node/">Node</a>
     </span>
     
 
